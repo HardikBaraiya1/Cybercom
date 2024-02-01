@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="./formvalidation.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <form id="booking">
+        <h2 style="font-weight: 300; text-align: center;">Flight Booking</h2>
+
+        <img src="./flight.jpg" alt="Flight booking ...">
+
+        <div class="tab">
+            <input type="text" name="firstName" id="firstName" placeholder="First Name"><br>
+            <input type="text" name="middleName" id="middleName" placeholder="Middle Name"><br>
+            <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>
+        </div>
+
+
+
+        <div class="tab">
+            <hr>
+            <input type="radio" name="tripType" id="oneWay" value="oneWay">
+            <label for="oneWay" >One Way</label>
+            <input type="radio" name="tripType" id="roundTrip" value="roundTrip">
+            <label for="roundTrip">Round Trip</label>
+
+            <hr>
+            <div class="tab">
+                <label for="dateofDeparture">Date of Departure: </label>
+                <input type="date" name="dateofDeparture" id="dateOfBirth">
+            </div>
+
+            <label for="tripFrom">From: </label>
+            <select name="tripFrom" id="tripFrom">
+                <option value="Bhavnagar">Bhavnagar</option>
+                <option value="Goa">Goa</option>
+                <option value="Una">Una</option>
+                <option value="Surat">Surat</option>
+            </select><br>
+            <label for="tripTo">To: </label>
+            <select name="tripTo" id="tripTo">
+                <option value="Bhavnagar">Bhavnagar</option>
+                <option value="Goa">Goa</option>
+                <option value="Una">Una</option>
+                <option value="Surat">Surat</option>
+            </select>
+        </div>
+
+        <div class="tab">
+            <input type="email" name="mail" id="mail" placeholder="Enter your Email">
+            <input type="number" name="number" id="number" placeholder="Enter your Number">
+        </div>
+
+        <div id="buttons">
+            <button type="reset" style="color: rgb(167, 13, 13); font-weight: 700;" id="reset">Reset</button>
+            <button type="submit" id="submit" style="color: rgb(8, 95, 8); font-weight: 700;">Submit</button>
+        </div>
+
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            // Form validation
+            $('#booking').submit(function (e) {
+                e.preventDefault();
+
+                // Reset previous error messages
+                $('.error-message').remove();
+
+                // Validate First Name
+                if ($('#firstName').val() === '') {
+                    $('#firstName').after('<div class="error-message" style="color: red;">Please enter your First Name</div>');
+                }
+
+                // Validate Last Name
+                if ($('#lastName').val() === '') {
+                    $('#lastName').after('<div class="error-message" style="color: red;">Please enter your Last Name</div>');
+                }
+
+                // Validate Date of Birth
+                if ($('#dateOfBirth').val() === '') {
+                    $('#dateOfBirth').after('<div class="error-message" style="color: red;">Please enter your Date of Birth</div>');
+                }
+
+                // Validate Trip Type
+                if (!$('input[name="tripType"]:checked').val()) {
+                    $('#oneWay').before('<div class="error-message" style="color: red;">Please select Trip Type</div>');
+                }
+
+                // Validate Trip From
+                if ($('#tripFrom').val() === '') {
+                    $('#tripFrom').after('<div class="error-message" style="color: red;">Please select Trip From</div>');
+                }
+
+                // Validate Trip To
+                if ($('#tripTo').val() === '') {
+                    $('#tripTo').after('<div class="error-message" style="color: red;">Please select Trip To</div>');
+                }
+
+                if ($('#tripFrom').val() == $('#tripTo').val()) {
+                    $('#tripTo').after('<div class="error-message" style="color: red;">Departure and Destination can not be same</div>');
+                }
+
+                // Validate Email
+                if ($('#mail').val() === '' || !isValidEmail($('#mail').val())) {
+                    $('#mail').after('<div class="error-message" style="color: red;">Please enter a valid Email</div>');
+                }
+
+                // Validate Number
+                if ($('#number').val() === '' || isNaN($('#number').val())) {
+                    $('#number').after('<div class="error-message" style="color: red;">Please enter a Number</div>');
+                }
+                else{
+                    var mobileNum = $('#number').val();
+                     if(mobileNum.length !=10)
+                    $('#number').after('<div class="error-message" style="color: red;">Please enter a valid Number</div>');
+                }
+            });
+
+            // Function to validate email format
+            function isValidEmail(email) {
+                // Regular expression for a valid email address
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 6</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <form action="./Success.html">
+        <fieldset>
+            <legend>Your address</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="fname">First Name</label>
+                    </td>
+                    <td>
+    
+                        <input type="text" name="fname">
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <label for="lname">Last Name</label>
+    
+                    </td>
+                    <td>
+                        <input type="text" name="lname"><br>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <label for="street">Street</label>
+                    </td>
+                    <td>
+    
+                        <input type="text" name="street">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="city">City</label>
+    
+                    </td>
+                    <td>
+                        <input type="text" name="city">
+                    </td>
+                </tr>
+            </table>
+    
+        </fieldset>
+    
+        <fieldset>
+            <legend>Additional details</legend>
+            <table>
+                <tr>
+                    <td>
+                    <label for="bio">Biography</label>
+                    </td>
+                    <td><textarea name="bio" id="" cols="30" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="img">Image</label></td>
+                    <td><input type="file" name="img" id="img"></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age Group</label></td>
+                    <td>
+                        <select name="age" id="age">
+                            <option value="9">Less than 9</option>
+                            <option value="0-9" selected>0 to 9 Years</option>
+                            <option value="10-18">10 to 18 Years</option>
+                            <option value="18">Above 18 Years</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Intrests</legend>
+            <table>
+                <tr>
+                    <td><label for="hobby">Hobbies</label></td>
+                    <td>
+                        <select name="hobby" id="hobby" size="4" >
+                            <option value="Playing soccer">Playing soccer</option>
+                            <option value="Dancing">Dancing</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="Watching movies">Watching movies</option>                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="char">Favourite car?</label>
+                    </td>
+                    <td>
+                        <select name="car" id="car">
+                            <option value="volvo">Volvo</option>
+                            <option value="alto">Alto</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="transport">Favourite public transport?</label>
+                    </td>
+                    <td>
+                        <select name="car" id="car" size="4">
+                            <option value="ground">Ground</option>
+                            <option value="train">Train</option>
+                            <option value="Bus">Bus</option>
+                            <option value="Water">Water</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    
+        <button type="reset" id="reset">Reset</button>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+</body>
+
+</html>

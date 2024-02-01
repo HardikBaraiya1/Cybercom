@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Field Validation</title>
+    <style>
+        .error-message{
+            color: red;
+            font-size: small;
+            margin-left: 8px;
+        }
+        input{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" onsubmit="check(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" >
+        <span class="error-message" id="nameError"></span>
+
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" >
+        <span class="error-message" id="emailError"></span>
+
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" >
+        <span class="error-message" id="passwordError"></span>
+
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <div id="resultArea"></div>
+
+    <script>
+        function check(event) {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value; 
+            var password = document.getElementById('password').value;
+            var error = 0;
+
+            var nameError = document.getElementById('nameError');
+            var emailError = document.getElementById('emailError');
+            var passwordError = document.getElementById('passwordError');
+
+            nameError.innerText = '';
+            emailError.innerText = '';
+            passwordError.innerText = '';
+
+            if (name.trim() === '') {
+                nameError.innerText = 'Name is required';
+                event.preventDefault();
+                error =1;
+            }
+
+            if (email.trim() === '') {
+                emailError.innerText = 'Email is required';
+                event.preventDefault();
+                error =1;
+            }
+
+            if (password.trim() === '') {
+                passwordError.innerText = 'Password is required';
+                event.preventDefault();
+                error =1;
+            }
+            if(!error)
+            document.getElementById('resultArea').innerHTML = '<h3 style="color:green;">Form Submitted Succesfully</h3>'
+            event.preventDefault();
+        }
+
+    </script>
+</body>
+</html>

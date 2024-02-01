@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Element</title>
+    <style>
+        .bg{
+            background-color: antiquewhite;
+        }
+        .font{
+            font-size: 23px;
+            font-weight: bolder;
+            color: peru;
+        }
+        #resultArea{
+            height: 25vh;
+            width: 55vw;
+            margin: 23px 0px;
+            border: 3px solid purple;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        appendChild is a method in JavaScript that is used to append a node as the last child of a specified parent node. This method is commonly used in conjunction with document.createElement() to dynamically create HTML elements and add them to the document.
+
+
+     -->
+    <button id="btn" onclick="generate()">Click here to generate</button>
+     <div id="resultArea">
+        data will load here
+     </div>
+    <script>
+        
+        function generate(){
+        var para = document.createElement('p');
+        var area = document.getElementById('resultArea');
+
+        para.textContent = 'This is dynamically generated......';
+        para.className = 'bg font';
+
+        area.appendChild(para);
+
+        document.body.appendChild(area);
+       }
+    </script>
+</body>
+</html>
+
+
+ <!-- 
+    The document.body.appendChild(newParagraph) line of code is appending the newly created newParagraph element to the <body> of the HTML document.
+
+        If you want to append the newParagraph element to a different element other than the <body>, you can replace document.body with a reference to the desired parent element.
+
+
+        var someContainer = document.getElementById('someContainer');
+        someContainer.appendChild(newParagraph);
+
+
+
+This code gets a reference to the element with the id "someContainer" and appends the newParagraph element to it. Adjust the ID or selector based on the actual structure of your HTML document.
+  -->

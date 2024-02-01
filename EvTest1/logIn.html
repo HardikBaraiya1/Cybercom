@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3 class="title">LOGIN</h3>
+    <div class="maincontent login-bg">
+        <div id="logIn">
+            <input type="email" name="mail" id="mail" placeholder="Email" value="hardikb.cybercom@gmail.com">
+            <input type="password" name="password" id="password" placeholder="Password" value="dd">
+            <button class="btn" onclick="varifyAndRedirect()">LOGIN</button>
+            <h4>OR</h4>
+            <button class="btn" onclick="location.href='register.html'">REGISTER NOW</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function varifyAndRedirect(){
+            let errorNumber = 0;
+            var mailArea = document.getElementById('mail');
+            var passwordArea = document.getElementById('password');
+
+            document.querySelectorAll('.errorMessage').forEach((error)=>error.remove());
+
+            // console.log('here')
+            if(mailArea.value ==''){
+                errorNumber =  checkNull(mailArea,'Please enter an email!');
+            }
+            else if(!isValidEmail(mailArea.value)){
+            // console.log(mailArea.value)
+
+                let emailError = document.createElement('div');
+                emailError.textContent = 'Please enter a Vaid Email!';
+                emailError.classList = 'errorMessage';
+                mailArea.insertAdjacentElement('afterend',emailError);
+                errorNumber =1
+            }
+            errorNumber =  checkNull(passwordArea,'Please enter a Password!')
+
+            if(!errorNumber){
+                getDataAndVarify();
+            }
+           
+        }
+
+    </script>
+</body>
+</html>

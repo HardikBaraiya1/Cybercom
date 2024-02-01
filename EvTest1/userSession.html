@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboardMainArea">
+        <div class="panel inline-block">
+            <table>
+                <tr>
+                    <td>Hello, [name]</td>
+                </tr>
+                <tr>
+                    <td>Dashboard</td>
+                </tr>
+                <tr>
+                    <td>Users</td>
+                </tr>
+                <tr>
+                    <td>Logout</td>
+                </tr>
+
+            </table>
+        </div>
+
+
+        <div class="dashboard inline-block">
+                <h3>Users Session Logs</h3>
+
+                <div>
+                    <table id="resultArea">
+                        <thead>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Birthdate</th>
+                            <th>Age</th>
+                            <th>Action</th>
+                        </thead>
+
+                    </table>
+                </div>
+                <script>
+                    var userCount = parseInt(localStorage.getItem('userCount')) || 0;
+
+                    
+                    // Initial display of existing data
+                    function userDisplay() {
+                        for (var i = 1; i <= userCount; i++) {
+                            var data = JSON.parse(localStorage.getItem('user_' + i));
+                            var trId = 'user_' + i;
+
+                            if (data == null)
+                                continue;
+                            resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                        <td>${data['name']}</td>
+                        <td>${data['mail']}</td>
+                        <td>${data['password']}</td>
+                        <td>${data['DOB']}</td>
+                        <td>${data['age']}</td>
+                        <td>
+                            <button onclick="editUser('${trId}')">Edit</button>
+                            <button onclick="deleteUser('${trId}')">Delete</button>
+                        </td>
+                    </tr>`);
+                        }
+                    }
+                    display();
+                </script>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 3</title>
+
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <style>
+        #Prac3content{
+    text-align: center;
+}
+
+    table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+    </style>
+</head>
+
+<body>
+    <div id="Prac3content">
+        <table id="mainTable">
+            <caption>Example: Nested</caption>
+            <tr>
+                <td colspan="2" rowspan="2">CI</td>
+                <td rowspan="2">All Genders</td>
+                <td>By Gender</td>
+            </tr>
+            <tr>
+                <td rowspan="1">
+                    <table id="subTable" >
+                        <tr><th>Male</th><th>Females</th></tr>
+                        <tr><td>9215604</td><td>4512358</td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Rural</td>
+                <td>6521458</td>
+                <td>4215389</td>
+                <td>4152348</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

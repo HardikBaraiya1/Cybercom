@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboardMainArea">
+        <div class="panel inline-block">
+            <table>
+                <tr>
+                    <td>Hello, [name]</td>
+                </tr>
+                <tr>
+                    <td>Dashboard</td>
+                </tr>
+                <tr>
+                    <td>Users</td>
+                </tr>
+                <tr>
+                    <td>Logout</td>
+                </tr>
+
+            </table>
+        </div>
+
+
+        <div class="dashboard inline-block">
+            <h3 class="addUser">Add User</h3>
+            <form action="#">
+                <h3>Add Product Form</h3>
+                <form action="#">
+                    <div class="addData">
+                        <input type="text" name="name" id="name" placeholder="Name">
+                        <input type="email" name="mail" id="mail" placeholder="Email">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                        <label for="DOB">Birthdate</label><input type="date" name="DOB" id="DOB"
+                            placeholder="DD/MM/YYY">
+                    </div>
+                    <button onclick="verifyAndAdd()" class="addUser btn">Add User</button>
+                </form>
+
+                <h3>User List:</h3>
+                <div>
+                    <table id="resultArea">
+                        <thead>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Birthdate</th>
+                            <th>Age</th>
+                            <th>Action</th>
+                        </thead>
+
+                    </table>
+                </div>
+                <script>
+                    var userCount = parseInt(localStorage.getItem('userCount')) || 0;
+
+                    function verifyAndAdd() {
+                        event.preventDefault();
+                        userCount = parseInt(localStorage.getItem('userCount')) || 0;
+                        var userName = document.getElementById('name').value;
+                        var mail = document.getElementById('mail').value;
+                        var password = document.getElementById('password').value;
+                        var DOB = document.getElementById('DOB').value;
+                        var resultArea = document.getElementById('resultArea');
+
+
+                        var age = null;
+                        // console.log(age);
+                        var data = {};
+
+                        if (userName !== '' && mail !== '' && password !== '' && isNaN(DOB)) {
+                            var place = 'user_' + (parseInt(userCount) + 1);
+
+                            data = {
+                                'name': userName,
+                                'mail': mail,
+                                'password': password,
+                                'DOB': DOB,
+                                'age': age,
+                            };
+                            localStorage.setItem('userCount', parseInt(userCount) + 1);
+                            localStorage.setItem(place, JSON.stringify(data));
+
+                            // Create a unique ID for the tr element
+                            var trId = 'user_' + (parseInt(userCount) + 1);
+
+                            resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                            <td>${data['name']}</td>
+                            <td>${data['mail']}</td>
+                            <td>${data['password']}</td>
+                            <td>${data['DOB']}</td>
+                            <td>${data['age']}</td>
+                            <td>
+                                <button onclick="editUser('${trId}')">Edit</button>
+                                <button onclick="deleteUser('${trId}')">Delete</button>
+                            </td>
+                        </tr>`);
+                        }
+
+                        // Clearing form
+                        document.getElementById('name').value = '';
+                        document.getElementById('mail').value = '';
+                        document.getElementById('password').value = '';
+                        document.getElementById('DOB').value = '';
+
+                        event.preventDefault();
+                    }
+
+                    function editUser(trId) {
+                        event.preventDefault();
+
+                        var changeAddUser = document.getElementsByClassName('addUser');
+
+                        changeAddUser[0].textContent = 'Update User';
+                        changeAddUser[1].textContent = 'Update User';
+                        changeAddUser[1].setAttribute('onclick', `saveEdit('${trId}')`);
+
+
+                        var data = JSON.parse(localStorage.getItem(trId));
+                        document.getElementById('name').value = data.name;
+                        document.getElementById('mail').value = data.mail;
+                        document.getElementById('password').value = data.password;
+                        document.getElementById('DOB').value = data.DOB;
+
+
+
+
+                    }
+
+                    function saveEdit(trId) {
+                        event.preventDefault();
+
+                        console.log('id is : ', trId)
+                        if (trId) {
+                            console.log('data');
+
+                            var userName = document.getElementById('name').value;
+                            var mail = document.getElementById('mail').value;
+                            var password = document.getElementById('password').value;
+                            var DOB = document.getElementById('DOB').value;
+                            var age = null;
+
+
+                            if (userName !== '' && isNaN(DOB) && password !== '' && mail !== '') {
+                                var data = {
+                                    'name': userName,
+                                    'mail': mail,
+                                    'password': password,
+                                    'DOB': DOB,
+                                    'age': age,
+
+                                };
+                                console.log(data);
+
+                                localStorage.setItem(trId, JSON.stringify(data));
+
+                                var trElement = document.getElementById(trId);
+                                trElement.parentNode.removeChild(trElement);
+
+                                // Update the displayed row with the edited data
+                                var resultArea = document.getElementById('resultArea');
+                                console.log('here')
+                                resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                            <td>${data['name']}</td>
+                            <td>${data['mail']}</td>
+                            <td>${data['password']}</td>
+                            <td>${data['DOB']}</td>
+                            <td>${data['age']}</td>
+                            <td>
+                                <button onclick="editUser('${trId}')">Edit</button>
+                                <button onclick="deleteUser('${trId}')">Delete</button>
+                            </td>
+                        </tr>`);
+                            }
+
+                            // Clear the form and the hidden field after saving the edit
+                            document.getElementById('name').value = '';
+                            document.getElementById('mail').value = '';
+                            document.getElementById('password').value = '';
+                            document.getElementById('DOB').value = '';
+                        }
+                    }
+
+                    function deleteUser(trId) {
+                        event.preventDefault();
+
+                        localStorage.removeItem(trId);
+                        userCount = Math.max(0, userCount - 1);
+                        localStorage.setItem('userCount', userCount);
+                        var trElement = document.getElementById(trId);
+                        trElement.parentNode.removeChild(trElement);
+                    }
+
+                    // Initial display of existing data
+                    function display() {
+                        for (var i = 1; i <= userCount; i++) {
+                            var data = JSON.parse(localStorage.getItem('user_' + i));
+                            var trId = 'user_' + i;
+
+                            if (data == null)
+                                continue;
+                            resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                        <td>${data['name']}</td>
+                        <td>${data['mail']}</td>
+                        <td>${data['password']}</td>
+                        <td>${data['DOB']}</td>
+                        <td>${data['age']}</td>
+                        <td>
+                            <button onclick="editUser('${trId}')">Edit</button>
+                            <button onclick="deleteUser('${trId}')">Delete</button>
+                        </td>
+                    </tr>`);
+                        }
+                    }
+                    display();
+                </script>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

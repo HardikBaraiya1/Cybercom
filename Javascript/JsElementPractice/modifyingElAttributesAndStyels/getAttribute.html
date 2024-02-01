@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get attribute</title>
+    
+</head>
+
+<body>
+    <!-- 
+        
+The element.getAttribute() method in JavaScript is used to get the value of a specified attribute on the element. You provide the attribute name as an argument, and the method returns the attribute's value
+
+
+Keep in mind that getAttribute() works for any attribute on an HTML element, not just data-* attributes. 
+
+It can be used for standard attributes like src, href, etc., as well.
+
+
+If the attribute doesn't exist on the element, getAttribute() will return null.
+     -->
+
+    <div class="content" style="background-color: aliceblue;" data-precious="This is confidential data">
+        this is a div
+    </div>
+    <button onclick="show()">Show</button>
+    <script>
+        var area = document.querySelector('.content');
+        var data = area.getAttribute('data-precious');
+        
+        var show = ()=>area.insertAdjacentHTML('afterend','<h3 style= "background-color:wheat">'+data+'</h3>');
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+    
+The "data-" prefix in HTML is used to create custom data attributes. Custom data attributes provide a way to store additional information on HTML elements. These attributes are intended to be used by developers to store information that is private to the page or application and not intended for styling or scripting.
+
+
+    <div data-user-id="123" data-username="john_doe" data-email="john@example.com">
+
+
+        var userId = element.dataset.userId;       // Accessing data-user-id
+        var username = element.dataset.username;   // Accessing data-username
+        var email = element.dataset.email;         // Accessing data-email
+
+        You can  retrieve the value of these attributes using element.getAttribute() or through the element's dataset property for data attribute
+Using the "data-" prefix helps to distinguish these attributes from standard HTML attributes and ensures that they adhere to a consistent naming convention. It also helps avoid naming conflicts with future HTML attributes. Custom data attributes are commonly used for storing application-specific data that needs to be associated with HTML elements.
+
+ -->

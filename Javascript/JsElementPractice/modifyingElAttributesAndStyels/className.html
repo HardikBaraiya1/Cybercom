@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class name</title>
+    <style>
+        .col {
+            color: red
+        }
+
+        .bold {
+            font-weight: bolder;
+        }
+
+        .bg {
+            background-color: beige;
+        }
+        body{
+            margin-inline: 18px;
+        }
+        .maincontent{
+            padding: 24px 12px ;
+            border: 3px solid brown;
+            margin: 12px 0px ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="maincontent">
+        This is main data
+    </div>
+    <select name="classes" id="classes">
+        <option value="">Choose class you want to add</option>
+        <option value="col">Add color</option>
+        <option value="bold">Make bold</option>
+        <option value="bg">give bg color</option>
+    </select>
+    <button onclick="addclass()">add bg color</button>
+    <script>
+        var area = document.querySelector('.maincontent');
+        function addclass() {
+            var data = document.getElementById('classes').value;
+            area.className +=" "+ data;
+        };
+    </script>
+</body>
+
+</html>
+
+<!-- 
+    
+The element.className property in JavaScript is used to get or set the class attribute of an HTML element. Unlike element.classList, which returns a DOMTokenList containing individual classes, element.className returns a string containing all the classes assigned to the element.
+
+
+
+Getting the Class Name:
+
+var element = document.getElementById('myDiv');
+var classNames = element.className;
+
+console.log(classNames);  // Outputs a string containing the class names
+
+
+
+Setting the Class Name:
+var element = document.getElementById('myDiv');
+element.className = 'newClass';
+
+
+// OR, append a new class to the existing ones
+element.className += ' anotherClass';
+
+
+When setting the class name using element.className, you are replacing the entire class attribute with the specified value. If you want to add or remove specific classes without affecting the others, using element.classList is generally a better option.
+ -->

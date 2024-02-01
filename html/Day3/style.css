@@ -1,0 +1,27 @@
+label{
+    text-align: start;
+}
+input{
+    align-self: center;
+    margin: 3px 4px;
+}
+
+#age{
+    width: 93px;
+    
+}
+
+#hobby{
+    width: 130px;
+}
+#car{
+    width: 70px;
+}
+
+#reset{
+    color: red;
+}
+
+#submit{
+    color: green;
+}

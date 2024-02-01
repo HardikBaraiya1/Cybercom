@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert Adjacent</title>
+    <style>
+        .maincontent{
+            border: 2px solid red;
+            background-color: aliceblue;
+        }
+        .subcontent{
+            border: 2px solid blue;
+            background-color: antiquewhite;
+        }
+        h3{
+            border: 2px dotted black;
+            background-color: aqua;
+        }
+        button{
+            margin: 20px 3px;
+            padding: 12px 12px ;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        
+The insertAdjacentHTML method is used to insert a string of HTML content at a specified position relative to the element. It provides control over where the new content will be inserted in relation to the existing content.
+
+element.insertAdjacentHTML(position, text);
+
+element:         The target element where the HTML content will be inserted.
+position:        A string representing the position where the HTML should be inserted. It can be one of the following values:
+'beforebegin':   Inserts the HTML content immediately before the element itself.
+'afterbegin':    Inserts the HTML content at the beginning of the element, before its first child.
+'beforeend':     Inserts the HTML content at the end of the element, after its last child.
+'afterend':      Inserts the HTML content immediately after the element itself.
+text:            The HTML content to be inserted.
+     -->
+
+     <div class="maincontent">
+        hello from main Div
+        <div class="subcontent">
+            hello from sub div
+        </div>
+     </div>
+
+     <button onclick="beforebegin()">beforebegin</button>
+     <button onclick="afterbegin()">afterbegin</button>
+     <button onclick="beforeend()">beforeend</button>
+     <button onclick="afterend()">afterend</button>
+
+     <script>
+        var innerdiv = document.querySelector('.subcontent');
+
+        var beforebegin = function (){
+            console.log('here')
+                innerdiv.insertAdjacentHTML('beforebegin', '<h3 style="color:red"> New inserted text Pos: beforebegin</h3>');
+            }
+        var afterbegin = ()=>{
+            innerdiv.insertAdjacentHTML('afterbegin', '<h3 style="color:purple"> New inserted text Pos: afterbegin</h3>');
+        }
+        var beforeend = ()=>{
+            innerdiv.insertAdjacentHTML('beforeend', '<h3 style="color:green"> New inserted text Pos: beforeend</h3>');
+        }
+        var afterend = ()=>{
+            innerdiv.insertAdjacentHTML('afterend', '<h3 style="color:grey"> New inserted text Pos: afterend</h3>');
+        }
+</script>
+</body>
+</html>

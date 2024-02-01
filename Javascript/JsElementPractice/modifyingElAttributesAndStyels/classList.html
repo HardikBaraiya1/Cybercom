@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class List</title>
+    <style>
+        .col{
+            color:red
+        }
+        .bold{
+            font-weight: bolder;
+        }
+        .bg{
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontent">
+        This is main data
+    </div>
+    <button onclick="addclass('col')">color</button>
+    <button onclick="addclass('bold')">make bold</button>
+    <button onclick="addclass('bg')">add bg color</button>
+    <script>
+        var area = document.querySelector('.maincontent');
+        function addclass(data){
+        // area.classList.add(data);
+        area.classList.toggle(data);
+    };
+    </script>
+</body>
+</html>
+
+<!-- 
+    The element.classList property in JavaScript is used to access the class attribute of an HTML element. It returns a live DOMTokenList collection of the class attributes of the element.
+
+Here are some commonly used methods and properties associated with element.classList:
+
+add(class1, class2, ...): Adds one or more class names to the element.
+
+javascript
+Copy code
+element.classList.add("newClass");
+remove(class1, class2, ...): Removes one or more class names from the element.
+
+javascript
+Copy code
+element.classList.remove("oldClass");
+toggle(class, force): Toggles a class. If the class exists, it is removed; otherwise, it is added. If the force parameter is true, the class is added; if false, the class is removed.
+
+javascript
+Copy code
+element.classList.toggle("active");
+contains(class): Checks if the element has a specific class.
+
+javascript
+Copy code
+if (element.classList.contains("highlight")) {
+    // Do something
+}
+item(index): Retrieves the class name at the specified index.
+
+javascript
+Copy code
+var firstClass = element.classList.item(0);
+length: Returns the number of classes.
+
+javascript
+Copy code
+var numberOfClasses = element.classList.length;
+ -->
