@@ -13,7 +13,7 @@
         <div id="logIn">
             <input type="email" name="mail" id="mail" placeholder="Email" value="hardikb.cybercom@gmail.com">
             <input type="password" name="password" id="password" placeholder="Password" value="dd">
-            <button class="btn" onclick="varifyAndRedirect()">LOGIN</button>
+            <button class="btn" onclick="logIn()">LOGIN</button>
             <h4>OR</h4>
             <button class="btn" onclick="location.href='register.html'">REGISTER NOW</button>
         </div>
@@ -21,33 +21,33 @@
 
     <script src="script.js"></script>
     <script>
-        function varifyAndRedirect(){
-            let errorNumber = 0;
-            var mailArea = document.getElementById('mail');
-            var passwordArea = document.getElementById('password');
+        // function varifyAndRedirect(){
+        //     let errorNumber = 0;
+        //     var mailArea = document.getElementById('mail');
+        //     var passwordArea = document.getElementById('password');
 
-            document.querySelectorAll('.errorMessage').forEach((error)=>error.remove());
+        //     document.querySelectorAll('.errorMessage').forEach((error)=>error.remove());
 
-            // console.log('here')
-            if(mailArea.value ==''){
-                errorNumber =  checkNull(mailArea,'Please enter an email!');
-            }
-            else if(!isValidEmail(mailArea.value)){
-            // console.log(mailArea.value)
+        //     // console.log('here')
+        //     if(mailArea.value ==''){
+        //         errorNumber =  checkNull(mailArea,'Please enter an email!');
+        //     }
+        //     else if(!isValidEmail(mailArea.value)){
+        //     // console.log(mailArea.value)
 
-                let emailError = document.createElement('div');
-                emailError.textContent = 'Please enter a Vaid Email!';
-                emailError.classList = 'errorMessage';
-                mailArea.insertAdjacentElement('afterend',emailError);
-                errorNumber =1
-            }
-            errorNumber =  checkNull(passwordArea,'Please enter a Password!')
+        //         let emailError = document.createElement('div');
+        //         emailError.textContent = 'Please enter a Vaid Email!';
+        //         emailError.classList = 'errorMessage';
+        //         mailArea.insertAdjacentElement('afterend',emailError);
+        //         errorNumber =1
+        //     }
+        //     errorNumber =  checkNull(passwordArea,'Please enter a Password!')
 
-            if(!errorNumber){
-                getDataAndVarify();
-            }
+        //     if(!errorNumber){
+        //         getDataAndVarify();
+        //     }
            
-        }
+        // }
 
     </script>
 </body>

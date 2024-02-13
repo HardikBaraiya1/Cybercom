@@ -9,10 +9,10 @@
 <body>
     <div class="dashboardMainArea">
         <div class="panel inline-block">
-            <table>
-                <tr><td>Hello, [name]</td></tr>
+            <table id="dashboard">
+                
                 <tr><td>Dashboard</td></tr>
-                <tr><td>Users</td></tr>
+                <tr onclick="redirectToUserPage()"><td>Users</td></tr>
                 <tr><td>Logout</td></tr>
 
             </table>
@@ -34,6 +34,14 @@
             <h4 class="title">Today's is 'ABC' Birthday.</h4>
         </div>
     </div>
-    
+    <script>
+        let username = new URLSearchParams(window.location.search).get('name');
+        document.getElementById('dashboard').insertAdjacentHTML("afterbegin",`
+        <tr><td>Hello, ${username}</td></tr>
+        `)
+        function redirectToUserPage(){
+            location.href='user.html?name='+username;
+        }
+    </script>
 </body>
 </html>

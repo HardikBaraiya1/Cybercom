@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async operation</title>
+    <style>
+        #result{
+            text-align: center;
+            color: green;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        "async and await make promises easier to write"
+
+        async makes a function return a Promise
+
+        await makes a function wait for a Promise
+     -->
+
+
+    <!-- The keyword async before a function makes the function return a promise: -->
+    <div class="mainContent">
+        <button id="btn" onclick="call()">Make Tea</button>
+    </div>
+    <div id="result"></div>
+    <script>
+
+     
+        // function after3Sec(){
+        //     return new Promise(resolve => {
+        //         setTimeout(() => {
+        //             resolve('3 seconds are over');
+        //         }, 3000);
+        //     })
+        // }
+        // async function call(){
+        //     console.log('calling');
+        //     const data = await after3Sec();
+        //     console.log(data);
+        //     document.getElementById('result').textContent = data;
+        // }
+        const result = document.getElementById('result');
+        const area = document.getElementById('btn');
+
+        //step 1
+        function boilWater(){
+            return new Promise((resolve,reject)=>{
+                result.textContent = 'Boiling water...';
+                setTimeout(() => {
+                    result.textContent = 'Water Boiled';
+                    resolve();
+                }, 3000);
+            })
+        }
+
+        //step 2
+        function addTea(){
+            return new Promise((resolve,reject)=>{
+                result.textContent = 'adding Tea powder';
+                setTimeout(() => {
+                result.textContent = 'Boiled';
+                resolve();
+
+                }, 2000);
+            })}
+
+        //taking in cup
+        function pourTea(){
+            return new Promise((resolve,reject)=>{
+                result.textContent = 'pouring Tea in your cup';
+
+                setTimeout(() => {
+                result.textContent = 'Tea poured , Enjoy your Tea';
+                resolve();
+
+                }, 3000);
+            })
+
+
+
+        }
+        
+        async function call(){
+            try{
+                if(document.getElementById('title'))  document.getElementById('title').remove();
+                area.insertAdjacentHTML("beforebegin",'<h3 id="title" style="color:red;text-align:center">Tea making Process Started and in Progress.....<h3>');
+            await boilWater();
+            await addTea();
+            await pourTea();
+            document.getElementById('title').textContent = 'Tea making process done , Enjoy your Tea';
+
+            }catch(error){
+                console.log(error);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- The two arguments (resolve and reject) are pre-defined by JavaScript.
+
+We will not create them, but call one of them when the executor function is ready.
+
+Very often we will not need a reject function. -->

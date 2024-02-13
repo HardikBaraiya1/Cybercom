@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callBack Function</title>
+</head>
+<!--Callback functions are used Where callbacks really shine are in asynchronous functions, where one function has to wait for another function (like waiting for a file to load). -->
+<body>
+    <!-- 
+        "I will call back later!"
+
+            A callback is a function passed as an argument to another function
+
+            This technique allows a function to call another function
+
+            A callback function can run after another function has finished
+     -->
+
+     <script>
+        function show(data){
+            document.body.textContent= data;
+        }
+
+        function calculator(n1,n2,callbackfunc){
+            callbackfunc('The sum is: '+n1+n2);
+        }
+        calculator(2,5,show);
+        //In the example above, show is a called a callback function.
+
+        // It is passed to calculator() as an argument.
+     </script>
+     <!-- 
+        Note
+            When you pass a function as an argument, remember not to use parenthesis.
+
+            Right:     myCalculator(5, 5, myDisplayer);
+
+            Wrong:     myCalculator(5, 5, myDisplayer());
+      -->
+</body>
+</html>

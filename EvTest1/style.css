@@ -11,7 +11,6 @@
 }
 
 input,
-btn,
 select {
     display: block;
     box-sizing: border-box;
@@ -21,7 +20,7 @@ select {
 
 }
 
-.btn {
+.btn{
     background-color: orange;
     padding: 7px 17px;
     width: auto;
@@ -57,6 +56,18 @@ a {
 
 .dashboard {
     width: auto;
+    vertical-align: top;
+    grid-column: 2/6;
+}
+.panel{
+    margin-right: 12px;
+    height: 100vh;
+    width: 30%;
+    /* background-color: antiquewhite; */
+}
+.dashboardMainArea{
+    display: grid;
+    grid-auto-flow: column;
 }
 
 .card {
@@ -71,8 +82,10 @@ a {
 
 
 .addData input {
-    display: inline;
-    width: auto;
+    display: block;
+    margin-top: 16px;
+    width: 66%;
+    column-gap: 20px;
 }
 
 table,
@@ -88,4 +101,30 @@ td {
     /* display: block; */
     margin-bottom: 7px;
     padding: 2px
+}
+
+#resultArea{
+    width: 66%;
+}
+
+.addUserBtn{
+    background-color: #bf37f3;
+    color: white;
+    padding: 8px 19px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.addUserBtn:hover{
+    background-color: #9600cf;
+}
+
+.userExist{
+    font-weight: 700;
+    font-size: 19px;
+    text-align: center;
+    width: 66%  ;
+    margin: 9px 0px;
+    color: red;
 }

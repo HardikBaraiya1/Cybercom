@@ -30,7 +30,7 @@ function logIn(){
 
 }
 
-//login
+//register
 function reigsterUser(){
     let mail = document.getElementById('email').value;
     let password = document.getElementById('password').value;
