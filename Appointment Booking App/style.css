@@ -44,6 +44,13 @@ input,select{
     color: red;
 }
 
+#registerSuccess{
+    margin: 5px 5px;
+    text-align: center;
+    padding: 6px 8px;
+    color: green;
+    font-weight: 700;
+}
 /* ----------- login and registration over */
 
 
@@ -89,5 +96,49 @@ input,select{
     margin-bottom: 13px;
 }
 input[type='radio']{
-    margin-right: 15px;
+        margin-inline: 6px;
+}
+
+#yourDetail{
+    font-weight: 700;
+    color: burlywood;
+    font-size: x-large;
+}
+.labels{
+    border: 1px solid aquamarine;
+    border-radius: 23px;
+    margin: 4px;
+}
+
+#displayDoctors{
+    width: 70%;
+    margin: auto;
+}
+
+#bookedSlots,#scheduledAppointment{
+    border: 4px solid beige;
+    border-radius: 8px;
+    padding: 8px 13px;
+    margin: 14px 18px;
+}
+
+.tableRow{
+    border: 4px double lightgrey;
+    text-align: center;
+}
+th{
+    background-color: lightgray;
+    padding: 4px 0px;
+    /* border-right: 2px solid black; */
+}
+
+.tablebtn{
+    margin: 8px 5px;
+    display: inline-block;
+    padding: 2px 14px;
+}
+
+.myTable{
+    width: 100%;
+    margin: auto;
 }
