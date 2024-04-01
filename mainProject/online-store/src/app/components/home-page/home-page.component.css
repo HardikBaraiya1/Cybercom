@@ -1,0 +1,23 @@
+.product-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col {
+    flex: 1;
+  }
+  
+  /* Make all product containers the same height */
+  .product-container {
+    flex: 1;
+  }
+  
+  .text-bg-dark {
+    height: 100%;
+  }
+  

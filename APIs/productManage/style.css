@@ -1,0 +1,61 @@
+
+#mainArea {
+    display: flex;
+    gap: 33px 38px;
+    flex-flow: wrap;
+    /* background-color: aqua; */
+    justify-content: space-evenly;
+}
+
+
+.cards{
+    border: 2px solid black;
+    padding: 4px 3px;
+    text-align: center;
+}
+
+img{
+    height: 100%;
+}
+
+.resultMsgArea {
+    border: 2px solid lightgrey;
+    padding: 17px 3px;
+    font-size: 19px;
+    text-align: center;
+    margin: 25px 5px;
+    color: green
+}
+
+#addProduct,#editProduct{
+    width: 50%;
+    margin: 2px auto;
+    box-shadow: 0px 0px 7px darkslategrey;
+    border-radius: 7px;
+    padding: 13px 11px;
+}
+
+#homeBtns{
+    display: flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.radioBtnArea{
+    display: inline-block;
+    width: 50%;
+}
+
+
+#paging{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: auto;
+}
+#categoryArea{
+    display: inline;
+}

@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Checkout</h2>
+  
+    <!-- User Information -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <h4>User Information</h4>
+        <p>Email: {{ userEmail }}</p>
+        <p>Mobile Number: {{ userMobile }}</p>
+        <p>Address: {{ userAddress }}</p>
+      </div>
+    </div>
+  
+    <!-- Payment Options -->
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Payment Options</h4>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="paymentOption" id="cod" value="cod" checked>
+          <label class="form-check-label" for="cod">Cash on Delivery</label>
+        </div>
+        <!-- Add more payment options if needed -->
+      </div>
+    </div>
+  
+    <!-- Order Summary -->
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h4>Order Summary</h4>
+        <ul>
+          <li *ngFor="let item of products">
+            {{ item.name }} - ${{ item.price }}
+          </li>
+        </ul>
+        <hr>
+        <p>Subtotal: ${{ getSubtotal() }}</p>
+        <p>GST (18%): ${{ getGST() }}</p>
+        <hr>
+        <p>Total: ${{ getTotal() }}</p>
+      </div>
+    </div>
+  </div>
+  

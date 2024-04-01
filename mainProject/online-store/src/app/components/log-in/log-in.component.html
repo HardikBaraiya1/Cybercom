@@ -1,0 +1,106 @@
+<section class="container d-flex flex-column vh-100">
+    <div class="row align-items-center justify-content-center g-0 h-lg-100 vh-100 py-8">
+        <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+            <!-- Card -->
+            <div class="card shadow">
+                <!-- Card body -->
+                <div class="card-body p-6">
+                    <div class="mb-4">
+                        <!-- <a href="../index.html"><img src="assests/logo.png" class="mb-4" alt="logo-icon"></a> -->
+                        <h1 class="mb-1 fw-bold">{{loginMode? 'Log in': 'Register Now'}}</h1>
+                    </div>
+                    <!-- Form -->
+                    <form *ngIf="loginMode" [formGroup]="loginForm" class="loginForm mx-3" (submit)="Login()">
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <!-- Add formControlName directive to bind the control to the form group -->
+                            <input type="email" id="email" class="form-control py-2" formControlName="email" placeholder="Email address here" value="">
+                            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                                <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+                                <div *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</div>
+                            </div>
+                        </div>
+                    
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <!-- Add formControlName directive to bind the control to the form group -->
+                            <input type="password" id="password" class="form-control py-2" formControlName="password" placeholder="**************" >
+                            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                                <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+                                <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                            </div>
+                        </div>
+                    
+                    
+                        <!-- <span>
+                            Don’t have an account?
+                            <a href="sign-up.html" class="ms-1">Register Now</a>
+                        </span> -->
+                        <div>
+                            <!-- Button -->
+                            <div class="d-grid w-50 mx-auto mt-3">
+                                <button type="submit" class="btn btn-primary">Log in</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form *ngIf="!loginMode" [formGroup]="registerForm" class="loginForm mx-3" (submit)="register()">
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <!-- Add formControlName directive to bind the control to the form group -->
+                            <input type="email" id="email" class="form-control py-2" formControlName="email" placeholder="Enter your email address here" value="">
+                            <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                                <div *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</div>
+                                <div *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format.</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">User Name:</label>
+                            <input type="text" name="userName" id="userName" class="form-control py-2" formControlName="username" placeholder="Enter your user name" value="">
+                            <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+                                <div *ngIf="registerForm.get('username')?.errors?.['required']">User name is required.</div>
+                            </div>
+                        </div>
+                    
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <!-- Add formControlName directive to bind the control to the form group -->
+                            <input type="password" id="password" class="form-control py-2" formControlName="password" placeholder="min. 6 characters required." >
+                            <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                                <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</div>
+                                <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                            </div>
+                        </div>
+                    
+                    
+                        <!-- <span>
+                            Don’t have an account?
+                            <a href="sign-up.html" class="ms-1">Register Now</a>
+                        </span> -->
+                        <div>
+                            <!-- Button -->
+                            <div class="d-grid w-50 mx-auto mt-3">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </form>
+
+                        <hr class="my-4">
+                        <span *ngIf="loginMode">
+                            Don’t have an account?
+                            <a (click)="toggleMode()" class="ms-1" style="cursor: pointer;">Register Now</a>
+                        </span>
+                        <span *ngIf="!loginMode">
+                            Get back to login
+                            <a (click)="toggleMode()" class="ms-1" style="cursor: pointer;">Login</a>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

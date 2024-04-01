@@ -39,10 +39,10 @@ function reigsterUser(){
     let passerror = document.getElementById('pass-error');
     let rePassError = document.getElementById('re-pass-error');
 
-    mailerror.classList.remove(' d-block');
-    passerror.classList.remove(' d-block');
-    Repassword.classList.remove(' d-block');
-    mailExist-error.classList.remove(' d-block');
+    mailerror.classList.remove('d-block');
+    passerror.classList.remove('d-block');
+    Repassword.classList.remove('d-block');
+    mailExist-error.classList.remove('d-block');
 
     function checkError(){
         if(mail==''){

@@ -1,0 +1,140 @@
+<div class="container mt-5 mx-auto w-50">
+    <div *ngIf="!addMobileOn && !addAddressOn">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Full Name</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+
+              {{ userPersonalInfo.username ? userPersonalInfo.username : 'Please Enter Your username' }}
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Email</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{ userPersonalInfo.email ? userPersonalInfo.email : 'Please Enter your Email' }}
+            </div>
+          </div>
+
+          
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Mobile</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{ userPersonalInfo.mobile_number ? userPersonalInfo.mobile_number: 'Please Enter your mobile number' }}
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Address</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{ userPersonalInfo.user_addresses }}
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-12">
+              <a class="btn btn-info mx-3" (click)="addMobile()">Edit Mobile</a>
+              <!-- <a class="btn btn-info mx-3" (click)="addAddress()">Edit Address</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Project Status Section -->
+      <div class="row gutters-sm">
+        <!-- Project Status Cards Here -->
+      </div>
+    </div>
+  
+    <!-- Profile Edit Mode -->
+    <div *ngIf="addMobileOn">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Mobile</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.mobile_number">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-9 text-secondary">
+                <button class="btn btn-primary px-4" (click)="addMobileSubmit()">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="addAddressOn">
+      <div class="col-lg-8">
+        <form [formGroup]="addressForm">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address Line 1</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.address_line_1">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address Line 2</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.address_line_2">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Landmark</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.landmark">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Main Address ?</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="userPersonalInfo.isDefault">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">City</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.city">
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-9 text-secondary">
+                <button class="btn btn-primary px-4" (click)="addAddressSubmit()">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  
+
+  
