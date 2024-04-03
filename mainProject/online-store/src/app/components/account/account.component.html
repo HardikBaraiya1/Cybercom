@@ -31,19 +31,62 @@
             </div>
           </div>
           
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-sm-3">
               <h6 class="mb-0">Address</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{ userPersonalInfo.user_addresses }}
+              {{ userAddress }}
             </div>
+          </div> -->
+          
+          <!-- <div class="container">
+            <h2>Addresses</h2>
+            <div class="row">
+              <div class="" *ngFor="let address of userAddress">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Address {{ address.id }}</h5>
+                    <p class="card-text">Address Line 1: {{ address.address_line_1 }}</p>
+                    <p class="card-text">Address Line 2: {{ address.address_line_2 }}</p>
+                    <p class="card-text">City: {{ address.city.name }}</p>
+                    <p class="card-text">Pincode: {{ address.city.pincode }}</p>
+                    <p class="card-text">Landmark: {{ address.landmark }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="container">
+            <h2>Addresses</h2>
+            <table class="table table-bordered table-group-divider table-light">
+              <thead>
+                <tr>
+                  <th>Address Line 1</th>
+                  <th>Address Line 2</th>
+                  <th>City</th>
+                  <th>Pincode</th>
+                  <th>Landmark</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Iterate over each address -->
+                <tr *ngFor="let address of userAddress">
+                  <td>{{ address.address_line_1 }}</td>
+                  <td>{{ address.address_line_2 }}</td>
+                  <td>{{ address.city.name }}</td>
+                  <td>{{ address.city.pincode }}</td>
+                  <td>{{ address.landmark }}</td>
+                </tr>
+                <!-- Repeat this row for each address -->
+              </tbody>
+            </table>
           </div>
           
           <div class="row">
             <div class="col-sm-12">
               <a class="btn btn-info mx-3" (click)="addMobile()">Edit Mobile</a>
-              <!-- <a class="btn btn-info mx-3" (click)="addAddress()">Edit Address</a> -->
+              <a class="btn btn-info mx-3" (click)="addAddress()">Add Address</a>
             </div>
           </div>
         </div>
@@ -80,7 +123,6 @@
     </div>
     <div *ngIf="addAddressOn">
       <div class="col-lg-8">
-        <form [formGroup]="addressForm">
         <div class="card">
           <div class="card-body">
             <div class="row mb-3">
@@ -88,7 +130,7 @@
                 <h6 class="mb-0">Address Line 1</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.address_line_1">
+                <input type="text" class="form-control" [(ngModel)]="userAddressUpdate.address_line_1" required>
               </div>
             </div>
             <div class="row mb-3">
@@ -96,7 +138,7 @@
                 <h6 class="mb-0">Address Line 2</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.address_line_2">
+                <input type="text" class="form-control" [(ngModel)]="userAddressUpdate.address_line_2">
               </div>
             </div>
             <div class="row mb-3">
@@ -104,7 +146,7 @@
                 <h6 class="mb-0">Landmark</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.landmark">
+                <input type="text" class="form-control" [(ngModel)]="userAddressUpdate.landmark">
               </div>
             </div>
             <div class="row mb-3">
@@ -112,7 +154,19 @@
                 <h6 class="mb-0">Main Address ?</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <input type="checkbox" class="form-check-input" [(ngModel)]="userPersonalInfo.isDefault">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="userAddressUpdate.isDefault">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">State</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <select class="form-control" [(ngModel)]="selectedState" (change)="getStateCities()" required>
+                  <option value="" disabled selected>Select State</option>
+                  <!-- Iterate over states to populate options -->
+                  <option *ngFor="let state of states" [value]="state.id">{{ state.state_name }}</option>
+                </select>
               </div>
             </div>
             <div class="row mb-3">
@@ -120,10 +174,13 @@
                 <h6 class="mb-0">City</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" [(ngModel)]="userPersonalInfo.city">
+                <select class="form-control" [(ngModel)]="userAddressUpdate.cityId" required>
+                  <option value="" disabled selected>Select City</option>
+                  <!-- Iterate over cities to populate options -->
+                  <option *ngFor="let city of cities" [value]="city.id">{{ city.city_name }}</option>
+                </select>
               </div>
             </div>
-            
             <div class="row">
               <div class="col-sm-3"></div>
               <div class="col-sm-9 text-secondary">
@@ -132,9 +189,9 @@
             </div>
           </div>
         </div>
-      </form>
       </div>
     </div>
+    
   
 
   

@@ -99,7 +99,8 @@ export class ProductsComponent implements OnInit {
   // }
 
   addToCart(productId:number,quantity:number=1){
-    let userId = localStorage.getItem('userId');
+    let userId: number = Number(JSON.parse(localStorage.getItem('user') || '').id);
+
     let cred = {
       "data": {
         "product": productId,
@@ -108,6 +109,7 @@ export class ProductsComponent implements OnInit {
         "order": null
       }
     }
+    console.log(cred);
     this.cartService.addCart(cred).subscribe({
       next: (res:any)=>{
         console.log(res);
@@ -133,8 +135,9 @@ cartProducts(){
 
 isProductInCart(id:number){
   let avail = false;
-  this.cart.forEach((product: { id: number; }) => {
-    if(product.id == id)avail = true;
+  this.cart.forEach((product: { attributes: { product: { data: { id: number; }; }; }; }) => {
+    console.log(product,id);
+    if(product.attributes.product.data.id == id)avail = true;
   });
   return avail;
 }

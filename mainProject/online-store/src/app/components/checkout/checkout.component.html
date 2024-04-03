@@ -1,43 +1,55 @@
-<div class="container">
-    <h2>Checkout</h2>
-  
-    <!-- User Information -->
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <h4>User Information</h4>
-        <p>Email: {{ userEmail }}</p>
-        <p>Mobile Number: {{ userMobile }}</p>
-        <p>Address: {{ userAddress }}</p>
-      </div>
+<div class="container" *ngIf="userPersonalInfo && cart">
+
+  <h2 class="mt-5 mb-4">Checkout</h2>
+  <h3 *ngIf="ordered" class="text-center mb-2 pb-3 text-success">Order Successfully....!!</h3>
+  <!-- User Information -->
+  <div class="row mb-4 border p-4 boxes">
+    <div class="col-md-6">
+      <h4>User Information</h4>
+      <p class="mb-2">Name: {{ userPersonalInfo?.username }}</p>
+      <p class="mb-2">Email: {{ userPersonalInfo?.email }}</p>
+      <p class="mb-2">Mobile Number: {{ userPersonalInfo?.mobile_number }}</p>
+      <p class="mb-0">Address: {{ userAddress }}</p>
     </div>
-  
-    <!-- Payment Options -->
-    <div class="row">
-      <div class="col-md-6">
-        <h4>Payment Options</h4>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="paymentOption" id="cod" value="cod" checked>
-          <label class="form-check-label" for="cod">Cash on Delivery</label>
-        </div>
-        <!-- Add more payment options if needed -->
-      </div>
-    </div>
-  
-    <!-- Order Summary -->
-    <div class="row mt-5">
-      <div class="col-md-6">
-        <h4>Order Summary</h4>
-        <ul>
-          <li *ngFor="let item of products">
-            {{ item.name }} - ${{ item.price }}
-          </li>
-        </ul>
-        <hr>
-        <p>Subtotal: ${{ getSubtotal() }}</p>
-        <p>GST (18%): ${{ getGST() }}</p>
-        <hr>
-        <p>Total: ${{ getTotal() }}</p>
+  </div>
+
+  <!-- Payment Options -->
+  <div class="row mb-4 border p-4 boxes">
+    <div class="col-md-6">
+      <h4>Payment Options</h4>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="paymentOption" id="cod" value="cod" checked>
+        <label class="form-check-label" for="cod">Cash on Delivery</label>
       </div>
     </div>
   </div>
-  
+
+  <!-- Order Summary -->
+  <div class="row mt-5 text-center border p-4 boxes" style="display: grid;justify-items: center;">
+    <div class="col-md-6">
+      <h4>Order Summary</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cart">
+            <td>{{ item.attributes.product.data.attributes.product_name}}</td>
+            <td>${{ item.attributes.product.data.attributes.price }}</td>
+            <td>{{ item.attributes.quantity }} Pcs</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <p class="mb-1">Subtotal: ${{ total_amount }}</p>
+      <p class="mb-1">GST (18%): ${{ total_amount * 0.18 }}</p>
+      <hr>
+      <p class="fw-bold" style="font-size: larger;">Total: ${{ total_amount + (total_amount * 0.18) }}</p>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-add-to-cart mt-4" *ngIf="!ordered" (click)="placeOrder()">Confirm Payment</button>
+</div>

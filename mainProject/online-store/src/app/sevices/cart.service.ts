@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class CartService {
+  userId:number = JSON.parse(localStorage.getItem('user') || '').id;
 
   cartUrl: string = environment.basUrl + environment.cart;
 
@@ -22,9 +23,21 @@ export class CartService {
       // }
       return this.http.post(this.cartUrl,data);
   }
-
+// &populate=product.product_image   ?fields=%2A&populate=%2A
   fetchCart(){
-    return this.http.get(this.cartUrl);
+    let finalUrl = this.cartUrl + `?filters[user_detail][id][$eq][0]=${this.userId}&populate=product.product_image&filters[order][id][$notNull]`;
+
+    return this.http.get(finalUrl);
+  }
+
+  deleteFromCart(id:number){
+    let finalUrl = this.cartUrl+'/'+id;
+    return this.http.delete(finalUrl);
+  }
+
+  updateCart(id:number,data:any){
+    let finalUrl = this.cartUrl+'/'+id;
+    return this.http.put(finalUrl,data);
   }
 
 }

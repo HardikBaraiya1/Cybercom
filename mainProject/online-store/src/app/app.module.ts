@@ -14,6 +14,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InteceptorInterceptor } from './sevices/interceptor/inteceptor.interceptor';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { InteceptorInterceptor } from './sevices/interceptor/inteceptor.intercep
     CartComponent,
     CheckoutComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
