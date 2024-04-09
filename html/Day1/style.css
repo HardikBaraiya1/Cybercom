@@ -1,0 +1,71 @@
+#Prac1content{
+    text-align: center;
+
+}
+
+.boxes{
+}
+
+.box{
+    padding: 5px;
+    margin-inline: 7px;
+    height: 315px;
+    width: 215px;
+    display: inline-block;
+    border: 1px solid grey;
+
+}
+
+.textStyle{
+    margin-inline: 150px;
+   
+}
+
+.pic{
+    height: 90%;
+    background-color: black;
+    display: grid;
+    align-content: center;
+}
+.caption{
+    background-color: #eeeeee;
+}
+
+.pic h4{
+    color: lightgray;
+    text-align: center;
+}
+
+
+
+/* Practical 2 data */
+
+#Prac2content h2{
+    text-align: center;
+}
+#Prac2content p{
+    text-align: center;
+    margin-inline: 100px;
+}
+
+.cards{
+    text-align: center;
+}
+
+.picture img{
+    border-radius: 50%;
+    margin: 17px;
+}
+
+.box2{
+    padding: 5px;
+    margin-inline: 7px;
+    height: 415px;
+    width: 275px;
+    display: inline-block;
+    /* border: 1px solid grey; */
+    box-shadow: 2px 2px 28px grey;
+
+}
+
+

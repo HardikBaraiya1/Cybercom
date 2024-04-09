@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <style>
+        #mainArea {
+            height: 25vh;
+            border: 4px double chocolate;
+            margin: 18px 0px;
+            padding: 11px 8px;
+            text-align: center;
+            text-shadow: 0px 6px 2px #000000d4;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainArea">
+
+    </div>
+    <!-- 
+        The global fetch() method starts the process of fetching a resource from the network, returning a promise that is fulfilled once the response is available.
+
+The promise resolves to the Response object representing the response to your request.
+
+A fetch() promise only rejects when a network error is encountered (which is usually when there's a permissions issue or similar). A fetch() promise does not reject on HTTP errors (404, etc.). Instead, a then() handler must check the Response.ok and/or Response.status properties.
+     -->
+
+    <!-- 
+        fetch(resource)
+        fetch(resource, options)
+        
+        resource    ----- This defines the resource that you wish to fetch.
+      -->
+    <button onclick="getDataUsingFetch()">GetDataUsingFetch</button>
+    <button onclick="getSpecifDataUSingFetch()">GetSpecificDataUsingFetch</button>
+    <button onclick="createDataUsingFetch()">createDataUsingFetch</button>
+    <button onclick="updateDataUsingFetch()">UpdateDataUsingFetch</button>
+    <button onclick="deleteDataUsingFetch()">DeleteDataUsingFetch</button>
+    <script src="scipt.js"></script>
+</body>
+
+</html>

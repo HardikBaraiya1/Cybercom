@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mainArea">
+<div id="yourDetail">
+
+    </div>
+        <div id="scheduledAppointment">
+
+        </div>
+        <div class="availibility form-select">
+            <label id="availLabel">Select your Availability:</label>
+            <div>
+                <input type="checkbox" id="slot1" value="07">
+                <label for="slot1">07:00 - 08:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="08">
+                <label for="slot1">08:00 - 09:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="09">
+                <label for="slot1">09:00 - 10:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="10">
+                <label for="slot1">10:00 - 11:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="11">
+                <label for="slot1">11:00 - 12:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="12">
+                <label for="slot1">12:00 - 13:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="13">
+                <label for="slot1">13:00 - 14:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="14">
+                <label for="slot1">14:00 - 15:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="15">
+                <label for="slot1">15:00 - 16:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="16">
+                <label for="slot1">16:00 - 17:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="17">
+                <label for="slot1">17:00 - 18:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="18">
+                <label for="slot1">18:00 - 19:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="19">
+                <label for="slot1">19:00 - 20:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="20">
+                <label for="slot1">20:00 - 21:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="21">
+                <label for="slot1">21:00 - 22:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="22">
+                <label for="slot1">22:00 - 23:00</label>
+            </div>
+            <div>
+                <input type="checkbox" id="slot1" value="23">
+                <label for="slot1">23:00 - 24:00</label>
+            </div>
+                
+        </div>
+    </div>
+    <button onclick="addDetail()">Set</button>
+
+    <script src="script.js"></script>
+    <script>
+        let userName = new URLSearchParams(window.location.search).get('u');
+
+        let addDetail = () => addDetails(userName);
+
+        checkDetails(userName);
+        showAppointments();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Attribute</title>
+    <style>
+        .bgcolor{
+            background-color: aquamarine;
+        }
+
+        .addColor{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>This is main div</h1>
+    </div>
+    <button onclick="bg()" ondblclick="col()">Click for color && Double click for bg</button>
+
+    <script>
+        var area = document.getElementById('content');
+
+        var bg = ()=> area.setAttribute('class','bgcolor');
+        var col = ()=> area.setAttribute('class','addColor')
+    </script>
+</body>
+</html>

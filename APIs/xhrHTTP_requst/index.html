@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xhr-HtttpRequsts</title>
+    <style>
+        #mainArea {
+            height: 25vh;
+            border: 4px double chocolate;
+            margin: 18px 0px;
+            padding: 11px 8px;
+            text-align: center;
+            text-shadow: 0px 6px 2px #000000d4;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainArea">
+        Data will show here when you request
+    </div>
+    <button onclick="getDataUsingXhr()">GetData</button>
+    <button onclick="getSPecificDataUsingXhr()">GetSpecificData</button>
+    <button onclick="createDataUsingXhr()">CreateData</button>
+    <button onclick="updateDataUsingXhr()">UpdateData</button>
+    <button onclick="deleteDataUsingXhr()">DeleteData</button>
+    <!-- 
+        XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.
+
+        Despite its name, XMLHttpRequest can be used to retrieve any type of data, not just XML.
+     -->
+    <!-- 
+        Constructor
+                    XMLHttpRequest()
+        
+        The constructor initializes an XMLHttpRequest. It must be called before any other method calls.
+      -->
+    <script src="script.js"></script>
+</body>
+
+</html>

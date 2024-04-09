@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Text</title>
+</head>
+<body>
+    <p id="mainTextArea">
+        Click on The button & See the Change
+    </p>
+
+    <button id="changingButton">Click Here</button>
+
+    <script>
+        let button =document.getElementById('changingButton');
+        let resultArea = document.getElementById('mainTextArea');
+
+        button.addEventListener('click',changingText);
+
+        function changingText(){
+            resultArea.innerText = 'You clicked on the button';
+        }
+    </script>
+</body>
+</html>

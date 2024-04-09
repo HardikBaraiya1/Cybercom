@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List item add and remove</title>
+
+    <style>
+        #add{
+            background-color: greenyellow;
+            border: 1px solid green;
+            border-radius: 3px;
+            padding: 5px 15px ;
+            
+        }
+        #remove{
+            background-color: red;
+            border: 1px solid darkred;
+            border-radius: 3px;
+            padding: 5px 15px ;
+            
+        }
+    </style>
+</head>
+<body>
+    <ol id="List">
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Bread</li>
+        <li>Milk</li>
+        <li>Eggs</li>
+        <li>Cheese</li>
+        <li>Tomatoes</li>
+        <li>Spinach</li>
+        <li>Chicken</li>
+        <li>Rice</li>
+        <li>Pasta</li>
+        <li>Onions</li>
+        <li>Potatoes</li>
+        <li>Carrots</li>
+    </ol>
+    <input type="text" name="dataToInput" id="dataToInput" placeholder="Enter new data value">
+    <button id="add">Add</button>
+    <button id="remove" onclick="removeItem()">Remove</button>
+    
+    <script>
+        let add = document.getElementById('add');
+        let remove = document.getElementById('remove');
+        let data = document.getElementById('dataToInput').value;
+        let list = document.getElementById('List');
+        
+        add.addEventListener('click', function(){
+            let newLi = document.createElement('li');
+            newLi.textContent = data;
+            list.appendChild(newLi)
+        })
+        
+        function removeItem(){
+            var items = list.getElementsByTagName('li');
+            list.removeChild(items[items.length - 1]);
+        }
+    </script>
+</body>
+</html>

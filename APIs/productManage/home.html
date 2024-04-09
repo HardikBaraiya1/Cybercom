@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="homeBtns">
+        <div class="mb-3">
+            <button onclick="location.href='add.html'" class="btn btn-success m-3">Create</button>
+
+            <div id="categoryArea" class="d-none">
+            <select id="categoryFilter">
+            </select>
+            <button onclick="filter()" class="btn btn-success">Filter</button>
+            <select name="sort" id="sort">
+                <option value="name">Name</option>
+                <option value="price" selected>Price</option>
+                <option value="category" disabled>Category</option>
+            </select>
+            <button onclick="sort()" class="btn btn-warning">Sort</button>
+        </div>
+        </div>
+        <div id="search" class="m-3">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="search()" class="btn btn-success">Search</button>
+        </div>
+    </div>
+
+    <div id="resultArea" class="d-none resultMsgArea"></div>
+    <!-- cru, show , add, edit -->
+    <div id="mainArea">
+
+
+    </div>
+    <div id="paging">
+        <button id="prevButton" onclick="displayUsingPage('dec')" class="btn btn-success">Previous</button>
+        <button id="nextButton" onclick="displayUsingPage('inc')" class="btn btn-success">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // fetching()
+        window.onload =async ()=>{
+            let dt = await firstFetchData()
+            console.log(dt);
+            displayUsingPaging(dt)
+        }
+        makeFilter()
+        // function show() {
+        //     $('#resultArea').text('Deleted Successfully...')
+        //         .removeClass('d-none')
+        //         .fadeToggle(2000)
+        //         .fadeOut(3000)
+        //     setTimeout(() => {
+        //         document.getElementById('resultArea').classList.add('d-none')
+        //     }, 5000);
+        // }
+
+
+
+
+    </script>
+</body>
+
+</html>

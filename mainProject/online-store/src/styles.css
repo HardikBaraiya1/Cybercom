@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: rgb(203, 209, 212);
+}
+
+hr{
+    color: blue;
+    box-shadow: 0px 0px 9px 1px black;
+}
+
+/* footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100Vw;
+} */

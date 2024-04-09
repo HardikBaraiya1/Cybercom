@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove itself</title>
+    <style>
+        .bg{
+            background-color: antiquewhite;
+            padding: 18px 2px;
+        }
+        .font{
+            font-size: 23px;
+            font-weight: bolder;
+            color: peru;
+        }
+        #resultArea{
+            height: 25vh;
+            width: 55vw;
+            margin: 23px 0px;
+            border: 3px solid purple;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn" onclick="generate()">Click here to generate</button>
+    <button onclick="remove()">Remove</button>
+    <button onclick="replace()">Replace</button>
+    <button onclick="removeItSelf()">Remove Whole Area</button>
+    
+     <div id="resultArea">
+        data will load here
+     </div>
+    <script>
+        
+        var para = document.createElement('p');
+        var area = document.getElementById('resultArea');
+        function generate(){
+
+        para.textContent = 'This is dynamically generated......';
+        para.className = 'bg font';
+
+        area.appendChild(para);
+
+        document.body.appendChild(area);
+
+        
+       }
+
+       function remove(){
+        area.removeChild(para);
+       }
+
+       function replace(){
+        var newpara = document.createElement('h3');
+        para.textContent = 'This is written in new tag H3 replaced by old tag';
+
+        para.className = 'bg';
+
+        area.replaceChild('para','newpara');
+       }
+
+       function removeItSelf(){
+        area.remove();
+       }
+    </script>
+</body></html>
+
+
+
+
+
+<!-- 
+    
+The document.remove() method doesn't exist in the DOM API. If you want to remove a specific element from the document, you should use the remove() method on the element itself.
+ -->

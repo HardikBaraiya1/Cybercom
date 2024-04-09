@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style manipulation and access</title>
+</head>
+<style>
+    button {
+        margin: 20px 3px;
+    }
+</style>
+
+<body>
+    <div class="maincontent">
+        This is data without any styling
+    </div>
+    <button onclick="change()">Change Style:</button>
+    <input type="text" id="key">
+    <input type="text" id="val">
+
+    <script>
+        function change(){
+        var area = document.querySelector('.maincontent');
+            var key = document.getElementById('key').value;
+            var val = document.getElementById('val').value;
+
+            // attempting to use the value of key as a property in style.key, but this is not the correct way to dynamically set a style property in JavaScript. Instead, you should use square brackets to access or set styles dynamically.
+            // area.style.key = val;
+            area.style[key] = val;
+
+
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- 
+    
+In JavaScript, square brackets are used to access properties of an object dynamically. The syntax object[property] allows you to use a variable (or an expression) as the property name. In the context of setting styles in the DOM, the square bracket notation is necessary because the style properties are accessed as properties of the style object.
+ -->

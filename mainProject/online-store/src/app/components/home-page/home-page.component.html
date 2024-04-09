@@ -1,0 +1,56 @@
+<!-- <p>home-page works!</p> -->
+
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto my-5">
+      <h1 class="display-3 fw-bold">ElectroStore</h1>
+      <h3 class="fw-normal text-muted mb-3">Destination for top-quality hardware solutions</h3>
+      <div class="d-flex gap-3 justify-content-center lead fw-normal">
+        <!-- <a class="icon-link" routerLink="/about">
+          Learn more
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a> -->
+        <a class="icon-link" routerLink="/products">
+          Buy
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
+      </div>
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+  </div>
+
+  <!-- <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"> -->
+      <!-- Item 1 -->
+      <div id="products">
+      <div *ngFor="let product of products" class="col">
+        <div class="text-bg-dark mx-md-0 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" id="{{product.id}}">
+          <div class="my-3 py-3 h-25">
+            <h2 class="display-5">{{product.attributes.product_name}}</h2>
+            <p class="lead">{{product.attributes.product_description}}</p>
+          </div>
+          <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 85%; border-radius: 21px;">
+            <img src="http://localhost:1337{{product.attributes.product_image.data?.[0].attributes.url}}"
+              alt="Image description" class="img-fluid"
+              style="width: 100%; max-height: 500px; object-fit: fill; border-radius: 21px;">
+          </div>
+          <div class="align-items-center w-100 mx-auto mt-4 mb-3">
+            <div>
+              <!-- <p class="lead" style="font-weight: 600;">Brand: {{ product.brand }} Color: {{ product.color }}</p> -->
+            </div>
+            <div>
+              <button class="btn btn-primary btn-add-to-cart" [disabled]="isProductInCart(product.id)"
+                (click)="addToCart(product.id)">
+                {{ isProductInCart(product.id) ? 'Added to Cart' : 'Add to Cart' }}
+              </button>
+  
+            </div>
+          </div>
+  
+          <h3 class="display-7">${{product.attributes.price}}</h3>
+        </div>
+      </div>
+      </div>
+      <!-- Repeat the pattern for additional items -->
+    <!-- </div>
+  </div> -->

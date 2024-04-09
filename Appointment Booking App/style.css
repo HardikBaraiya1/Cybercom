@@ -1,0 +1,144 @@
+.form-invalid{
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc2626'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23dc2626' stroke='none'/%3E%3C/svg%3E");
+background-position: right calc(.4em + .25rem) center;
+background-repeat: no-repeat;
+background-size: calc(.8em + .5rem) calc(.8em + .5rem);
+border-color: var(--gk-form-invalid-border-color);
+padding-right: calc(1.6em + 1rem);
+}
+
+input,select{
+    padding: 4px 10px;
+}
+
+#submitBtn, #updateBtn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 19px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#submitBtn:hover, #updateBtn:hover{
+    background-color: #45a049;
+}
+
+.dNone{
+    display: none;
+}
+
+.playingArea{
+    margin-top: 27px;
+}
+
+.userGreeting{
+    margin: 15px 13px;
+    /* background-color: #45a049; */
+}
+
+.userExist{
+    font-weight: 700;
+    font-size: 19px;
+    text-align: center;
+    margin: 9px 0px;
+    color: red;
+}
+
+#registerSuccess{
+    margin: 5px 5px;
+    text-align: center;
+    padding: 6px 8px;
+    color: green;
+    font-weight: 700;
+}
+/* ----------- login and registration over */
+
+
+
+
+/* Doctor HomePage */
+
+.availibility{
+    position: fixed;
+    /* top: 50vh; */
+    left: 25vw;
+    /* width: 40vw; */
+}
+
+.availibility div, .docData{
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 2px 6px;
+    padding: 4px 5px;
+}
+
+#availLabel,.docLabel{
+    display: block;
+}
+
+.detail{
+    margin: 6px 6px;
+}
+
+.nameError{
+    color: red;
+}
+
+.cards{
+    margin: 17px 3px;
+    padding: 11px 9px;
+    text-align: center;
+    border: 2px double grey;
+}
+
+.header{
+    border-bottom: 1px solid black;
+    margin-bottom: 13px;
+}
+input[type='radio']{
+        margin-inline: 6px;
+}
+
+#yourDetail{
+    font-weight: 700;
+    color: burlywood;
+    font-size: x-large;
+}
+.labels{
+    border: 1px solid aquamarine;
+    border-radius: 23px;
+    margin: 4px;
+}
+
+#displayDoctors{
+    width: 70%;
+    margin: auto;
+}
+
+#bookedSlots,#scheduledAppointment{
+    border: 4px solid beige;
+    border-radius: 8px;
+    padding: 8px 13px;
+    margin: 14px 18px;
+}
+
+.tableRow{
+    border: 4px double lightgrey;
+    text-align: center;
+}
+th{
+    background-color: lightgray;
+    padding: 4px 0px;
+    /* border-right: 2px solid black; */
+}
+
+.tablebtn{
+    margin: 8px 5px;
+    display: inline-block;
+    padding: 2px 14px;
+}
+
+.myTable{
+    width: 100%;
+    margin: auto;
+}

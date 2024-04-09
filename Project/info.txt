@@ -1,0 +1,24 @@
+Tables:
+
+ProductsTable
+CustomersTable
+OrdersTable
+OrderItemsTable
+
+
+
+Triggers:
+
+UpdateStockQuantityTrigger
+
+
+
+Config(Configuration) Table:
+
+CreateConfigTable
+
+
+
+Procedures:
+
+CreateCalculateOrderTotalProcedure

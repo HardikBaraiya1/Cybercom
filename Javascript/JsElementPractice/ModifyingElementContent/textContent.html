@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Content</title>
+</head>
+<body>
+    <!-- 
+        
+The textContent property returns the text content of an element, excluding any HTML tags. It retrieves only the plain text within the element, regardless of the presence of HTML tags or the structure of the content.
+The HTML tags are ignored, and only the textual content is considered.
+     -->
+    <div id="content" style="border: 1px solid;">
+        hello this is normal text
+        <p>hii there</p>
+    </div>
+    <script>
+        var area = document.getElementById('content');
+
+        console.log(area.textContent);
+        
+        area.addEventListener('click',function (){
+            area.textContent = 'Text Changed'
+        })
+    </script>
+</body>
+</html>

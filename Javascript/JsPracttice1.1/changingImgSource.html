@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing images</title>
+    <style>
+        img{
+            height: 150px;
+            width: 150px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Click on an image to change:</h2>
+
+    <img src="image1.jpg" alt="Image 1" onclick="change(this)">
+    <img src="image2.jpg" alt="Image 2" onclick="change(this)">
+    <img src="image3.jpg" alt="Image 3" onclick="change(this)">
+
+    <script>
+        function change(img) {
+            
+            var currentSource = img.src;
+            var currentImageNumber = parseInt(currentSource.charAt(currentSource.length - 5));
+            var newImageNumber = (currentImageNumber % 3) + 1;
+
+            img.src = "image" + newImageNumber + ".jpg";
+        }
+    </script>
+</body>
+</html>

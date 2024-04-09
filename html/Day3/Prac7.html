@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style2.css">
+    <style>
+
+            td{
+                padding: 8px 1px;
+            }
+    </style>
+</head>
+<body>
+
+<form action="/submit_form" >
+    <table>
+        <tr>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td><input type="text" name="firstName" required></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><input type="text" name="lastName" required></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" required><br><span>(Your email address will be your username)</span></td>
+        </tr>
+        <tr>
+            <td>Re-type Email:</td>
+            <td><input type="text" name="retypeEmail" required></td>
+        </tr>
+        <tr>
+            <td>Pasword</td>
+            <td><input type="password" name="password" required><br><span>(min 8character, 1number, case-sensitive)</span></td>
+        </tr>
+        <tr>
+            <td>Re-type Password:</td>
+            <td><input type="password" name="retypepassword" required></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name="address" required></td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td><input type="text" name="city" required></td>
+        </tr>
+        <tr>
+            <td>State:</td>
+            <td>
+                <select name="state" required >
+                    <option value="state1">Choose a state</option>
+                    <option value="state2">Gujarat</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Zip Code:</td>
+            <td><input type="text" id="zipcode" name="zipcode" required>
+                <div id="zipdiv" >Optional</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone: </td>
+            <td >
+                <span >
+                    <input style="width: 125px;" type="text" name="phone" required><br><span>(No space or dashes)</span>
+                </span>
+                <select name="phoneType">
+                    <option value="mobile">Mobile</option>
+                    <option value="home">Home</option
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Date of Birth:</td>
+            <td>
+                <select name="month">
+                    <option value="month" selected>Month</option>
+                    <option value="jan">January</option>
+                </select>
+                <select name="day">
+                    <option value="day" selected>Day</option>
+                    <option value="mon">Monday</option>
+
+                </select>
+                <select name="year">
+                    <option value="year" selected>year</option>
+                    <option value="2024">2024</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <select name="gender">
+                    <option value="gender" selected>choose a gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Security Question:</td>
+            <td>
+                <select name="securityQuestion" placeholder="Choose a security question">
+                    <option value="question1">choose a security question</option>
+                    <option value="question2">where are you?</option>                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Security Answer:</td>
+            <td>
+                <input type="text" name="securityAnswer" required><br>
+                <span>(Not case sensitive)</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Register">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

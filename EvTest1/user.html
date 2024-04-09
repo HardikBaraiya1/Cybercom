@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="dashboardMainArea">
+        <div class="panel inline-block">
+            <table>
+                <tr>
+                    <td>Hello, [name]</td>
+                </tr>
+                <tr>
+                    <td>Dashboard</td>
+                </tr>
+                <tr>
+                    <td>Users</td>
+                </tr>
+                <tr>
+                    <td>Logout</td>
+                </tr>
+
+            </table>
+        </div>
+
+
+        <div class="dashboard inline-block">
+            <h3 class="addUser">Add User</h3>
+            <form action="#" id="addUserForm">
+                <div class="addData">
+                    <input type="text" name="name" id="name" placeholder="Name" value="abc">
+                    <div class="invalid-feedback" id="name-error">Please enter valid username.</div>
+
+                    <input type="email" name="mail" id="mail" placeholder="Email" value="abc@xy.com">
+                    <div class="invalid-feedback" id="mail-error">Please enter a valid Email.</div>
+
+                    <input type="password" name="password" id="password" placeholder="Password" value="123">
+                    <div class="invalid-feedback" id="pass-error">Please enter a valid Password.</div>
+
+                    <label for="DOB">Birthdate</label><input type="date" name="DOB" id="DOB" placeholder="DD/MM/YYY"
+                        value="2024-02-07">
+                    <div class="invalid-feedback" id="dob-error">Please enter valid Date of birth.</div>
+
+                </div>
+                <button onclick="verifyAndAdd()" class="addUser addUserBtn">Add User</button>
+            </form>
+
+            <h3>User List:</h3>
+            <div>
+                <table id="resultArea">
+                    <thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Birthdate</th>
+                        <th>Age</th>
+                        <th>Action</th>
+                    </thead>
+
+                </table>
+            </div>
+            <script src="script.js"></script>
+            <script>
+                var userCount = parseInt(localStorage.getItem('userCount')) || 0;
+
+                function verifyAndAdd() {
+                    event.preventDefault();
+                    userCount = parseInt(localStorage.getItem('userCount')) || 0;
+                    var userName = document.getElementById('name').value;
+                    var mail = document.getElementById('mail').value;
+                    var password = document.getElementById('password').value;
+                    var DOB = document.getElementById('DOB').value;
+                    var resultArea = document.getElementById('resultArea');
+
+
+                    var age = calculateAge(DOB);
+                    // console.log(age);
+                    var data = {};
+
+                    if (userName !== '' && mail !== '' && password !== '' && isNaN(DOB)) {
+                        var place = 'user_' + (parseInt(userCount) + 1);
+
+                        data = {
+                            'name': userName,
+                            'mail': mail,
+                            'password': password,
+                            'DOB': DOB,
+                            'age': age,
+                        };
+                        console.log(
+                            addUser(data)
+                        )
+                    }
+                }
+
+                function editUser(trId) {
+                    event.preventDefault();
+
+                    var changeAddUser = document.getElementsByClassName('addUser');
+
+                    changeAddUser[0].textContent = 'Update User';
+                    changeAddUser[1].textContent = 'Update User';
+                    changeAddUser[1].setAttribute('onclick', `saveEdit('${trId}')`);
+
+
+                    let olddata = JSON.parse(localStorage.getItem('users_'))[0];
+                    console.log(olddata);
+                    console.log(typeof (trId));
+
+                    document.getElementById('name').value = olddata.name;
+                    document.getElementById('mail').value = olddata.mail;
+                    document.getElementById('password').value = olddata.password;
+                    document.getElementById('DOB').value = takeDateFormat(olddata.DOB);
+
+                    console.log(typeof(takeDateFormat(olddata.DOB)))
+
+
+                }
+// Function to calculate age based on date of birth
+function calculateAge(dateOfBirthString) {
+    // Parse date string into Date object
+    let dateOfBirth = new Date(takeDateFormat(dateOfBirthString));
+
+    // Get current date
+    let currentDate = new Date();
+
+    // Calculate age
+    let age = currentDate.getFullYear() - dateOfBirth.getFullYear();
+
+    // Check if birthday has occurred this year
+    if (currentDate.getMonth() < dateOfBirth.getMonth() || 
+        (currentDate.getMonth() === dateOfBirth.getMonth() && 
+        currentDate.getDate() < dateOfBirth.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+
+
+                function takeDateFormat(dateString) {
+                    let dateParts = dateString.split("-"); // Split the string into parts
+                    let year = parseInt(dateParts[0]);
+                    let month = parseInt(dateParts[1]) - 1; // Month is zero-indexed in JavaScript Date objects
+                    let day = parseInt(dateParts[2]) + 1;
+
+                    // Create a new Date object with the parsed date parts
+                    let dateObject = new Date(year, month, day);
+
+                    // Set the value of the input element
+                    return dateObject.toISOString().split('T')[0];
+
+
+
+                }
+
+
+ 
+
+                // Initial display of existing data
+                // function display() {
+                //     for (var i = 1; i <= userCount; i++) {
+                //         var data = JSON.parse(localStorage.getItem('user_' + i));
+                //         var trId = 'user_' + i;
+
+                //         if (data == null)
+                //             continue;
+                //         resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                //     <td>${data['name']}</td>
+                //     <td>${data['mail']}</td>
+                //     <td>${data['password']}</td>
+                //     <td>${data['DOB']}</td>
+                //     <td>${data['age']}</td>
+                //     <td>
+                //         <button onclick="editUser('${trId}')">Edit</button>
+                //         <button onclick="deleteUser('${trId}')">Delete</button>
+                //     </td>
+                // </tr>`);
+                //     }
+                // }
+                // display();
+                showTable()
+            </script>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

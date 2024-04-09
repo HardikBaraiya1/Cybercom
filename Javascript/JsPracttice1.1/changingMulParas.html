@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing multiple Paragraphs</title>
+</head>
+<body>
+    <p id="paragraph1">Hello World</p>
+    <button onclick="changeText('paragraph1')">Change Text 1</button>
+<hr>
+    <p id="paragraph2">How are you</p>
+    <button onclick="changeText('paragraph2')">Change Text 2</button>
+<hr>
+    <p id="paragraph3">What's the time </p>
+    <button onclick="changeText('paragraph3')">Change Text 3</button>
+<hr>
+    <script>
+        function changeText(paragraphId) {
+            var paragraph = document.getElementById(paragraphId);
+            if (paragraph) {
+                paragraph.innerText = 'Text changed !!!!';
+            }
+        }
+    </script>
+
+</body>
+</html>

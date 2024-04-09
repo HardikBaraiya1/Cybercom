@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3 class="title">Registration</h3>
+    <div class="maincontent reg-border">
+        <div id="Register">
+            <input type="text" name="userName" id="userName" placeholder="Name" required>
+            <input type="email" name="mail" id="mail" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" name="rePassword" id="rePassword" placeholder="Confirm Password" required>
+            <select name="city" id="city" required>
+                <option value="">Select City</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Surat">Surat</option>
+                <option value="Gandhinagar">Gandhinagar</option>
+            </select>
+            <select name="state" id="state" required>
+                <option value="">Select State</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Delhi">Delhi</option>
+                <option value="UP">UP</option>
+            </select>
+            <div id="checkboxArea">
+                <input type="checkbox" name="termAndConditions" id="termAndConditions">
+            <label for="checkbox">Term & Conditions</label>
+            </div>
+
+            
+            <button class="btn" onclick="checkValid()">REGISTER</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function checkValid(){
+            let errorNumber = 0;
+            var userNameArea = document.getElementById('userName');
+            var mailArea = document.getElementById('mail');
+            var passArea = document.getElementById('password');
+            var rePassArea = document.getElementById('rePassword');
+            var cityArea = document.getElementById('city');
+            var stateArea = document.getElementById('state');
+            var checkbox = document.getElementById('termAndConditions');
+            var checkboxArea = document.getElementById('checkboxArea');
+
+
+            document.querySelectorAll('.errorMessage').forEach((error)=>error.remove());
+
+
+            errorNumber = checkNull(userNameArea, 'Usernme can not be blank');
+            if(mailArea.value ==''){
+            errorNumber =checkNull(mailArea,'Please enter an email!');
+            }
+            else if(!isValidEmail(mailArea.value)){
+            // console.log(mailArea.value)
+
+                let emailError = document.createElement('div');
+                emailError.textContent = 'Please enter a Vaid Email!';
+                emailError.classList = 'errorMessage';
+                mailArea.insertAdjacentElement('afterend',emailError);
+                errorNumber = 1;
+            }
+
+            if(passArea.value =='') 
+            errorNumber =  checkNull(passArea,'Please enter a Password!');
+            else if(passArea.value!=rePassArea.value){
+                let error = document.createElement('p');
+                error.textContent = 'Password not matches';
+                error.classList = 'errorMessage';
+                error.setAttribute('id','error-rePass');
+                rePassArea.insertAdjacentElement('afterend',error);
+                errorNumber = 1;
+            }
+
+            errorNumber = checkNull(cityArea, 'Choose your city...')
+            errorNumber = checkNull(stateArea, 'Choose your State...')
+
+            if(!checkbox.checked){
+                let emailError = document.createElement('div');
+                emailError.textContent = 'Accept the term and conditions!!!';
+                emailError.classList = 'errorMessage';
+                checkboxArea.insertAdjacentElement('afterend',emailError);
+                errorNumber =1;
+            }
+            
+            
+            if(!errorNumber){
+                if(userNameArea.value != 'admin'){
+                let emailError = document.createElement('div');
+                emailError.textContent = 'You can not register by yourself!!!';
+                emailError.classList = 'errorMessage';
+                userNameArea.insertAdjacentElement('beforebegin',emailError);
+                errorNumber =1;
+            }
+            else
+            location.href = `dashboard.html?name=${userNameArea.value}`
+            }
+
+        }
+        
+    </script>
+</body>
+</html>

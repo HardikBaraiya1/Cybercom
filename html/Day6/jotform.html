@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Patient Inforation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./jotform.css">
+</head>
+
+<body>
+    <div class="showErrors"></div>
+
+    <form action="#" id="patient">
+
+        <h2 id="titleOfForm">General Patient Information</h2>
+        <hr>
+        <table>
+            <tr>
+                <td>
+                    <label for="gender" class="mainLabels">Patient Gender <i class="bi bi-asterisk icons"></i></label>
+                    <select name="gender" id="gender" required>
+                        <option value="">Please Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="firstName" class="mainLabels">Patient Name <i class="bi bi-asterisk icons"></i></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- <div class="wrapInputs"> -->
+                    <input type="text" name="firstName" id="firstName" required>
+                    <label for="firstName" class="subLabel">First Name</label>
+
+                </td>
+                <td colspan="2">
+                    <input type="text" name="lastName" id="lastName" required>
+                    <label for="lastName" class="subLabel">Last Name</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label for="birthDate" class="mainLabels">Patient Birth Date: <i class="bi bi-asterisk icons"></i></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="birthMonth" name="birthMonth">
+                        <option value="">Please select a month</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="day" name="day">
+                        <option value="">Please select a day</option>
+                        <option value="01">1</option>
+                        <option value="02">2</option>
+                        <option value="03">3</option>
+                        <option value="04">4</option>
+                        <option value="05">5</option>
+                        <option value="06">6</option>
+                        <option value="07">7</option>
+                        <option value="08">8</option>
+                        <option value="09">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+
+                </td>
+                <td>
+                    <select id="year" name="year">
+                        <option value="">Please select a year</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="height" class="mainLabels">Patient Height (cm's) <i class="bi bi-asterisk icons"></i></label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="height" id="height" placeholder="ex. 176">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="weight" class="mainLabels">Patient Weight (kg's) <i class="bi bi-asterisk icons"></i></label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="weight" id="weight" placeholder="ex. 70">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="pateintEmail" class="mainLabels">Patient E-mail <i class="bi bi-asterisk icons"></i></label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="email" name="pateintEmail" id="pateintEmail">
+                    <label for="pateintEmail" class="subLabel">example@example.com</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="pateintEmail" class="mainLabels">Reason for seeing the doctor: <i class="bi bi-asterisk icons"></i></label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="reason" id="reason">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="medicalHistory" class="mainLabels">Reason for seeing the doctor:</label>
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="medicalHistory" class="mainLabels" style="font-size: medium;">Please list
+                        any drug allergies</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea name="medicalHistory" id="medicalHistory" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label for="medicalHistory" class="mainLabels" style="font-size: medium;">Have you ever had (Please
+                        check all that apply)</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="form-checkbox-group">
+                        <input type="checkbox" id="anemia" name="healthConditions" value="Anemia">
+                        <label for="anemia">Anemia</label><br>
+
+                        <input type="checkbox" id="asthma" name="healthConditions" value="Asthma">
+                        <label for="asthma">Asthma</label><br>
+
+                        <input type="checkbox" id="arthritis" name="healthConditions" value="Arthritis">
+                        <label for="arthritis">Arthritis</label><br>
+
+                        <input type="checkbox" id="cancer" name="healthConditions" value="Cancer">
+                        <label for="cancer">Cancer</label><br>
+
+                        <input type="checkbox" id="gout" name="healthConditions" value="Gout">
+                        <label for="gout">Gout</label><br>
+
+                        <input type="checkbox" id="diabetes" name="healthConditions" value="Diabetes">
+                        <label for="diabetes">Diabetes</label><br>
+
+                        <input type="checkbox" id="emotionalDisorder" name="healthConditions"
+                            value="Emotional Disorder">
+                        <label for="emotionalDisorder">Emotional Disorder</label><br>
+
+                        <input type="checkbox" id="epilepsySeizures" name="healthConditions" value="Epilepsy Seizures">
+                        <label for="epilepsySeizures">Epilepsy Seizures</label><br>
+
+                        <input type="checkbox" id="faintingSpells" name="healthConditions" value="Fainting Spells">
+                        <label for="faintingSpells">Fainting Spells</label><br>
+
+                        <input type="checkbox" id="gallstones" name="healthConditions" value="Gallstones">
+                        <label for="gallstones">Gallstones</label><br>
+
+                        <input type="checkbox" id="heartDisease" name="healthConditions" value="Heart Disease">
+                        <label for="heartDisease">Heart Disease</label><br>
+
+                        <input type="checkbox" id="heartAttack" name="healthConditions" value="Heart Attack">
+                        <label for="heartAttack">Heart Attack</label><br>
+
+                        <input type="checkbox" id="rheumaticFever" name="healthConditions" value="Rheumatic Fever">
+                        <label for="rheumaticFever">Rheumatic Fever</label><br>
+
+                        <input type="checkbox" id="highBloodPressure" name="healthConditions"
+                            value="High Blood Pressure">
+                        <label for="highBloodPressure">High Blood Pressure</label><br>
+
+                        <input type="checkbox" id="digestiveProblems" name="healthConditions"
+                            value="Digestive Problems">
+                        <label for="digestiveProblems">Digestive Problems</label><br>
+
+                        <input type="checkbox" id="ulcerativeColitis" name="healthConditions"
+                            value="Ulcerative Colitis">
+                        <label for="ulcerativeColitis">Ulcerative Colitis</label><br>
+
+                        <input type="checkbox" id="ulcerDisease" name="healthConditions" value="Ulcer Disease">
+                        <label for="ulcerDisease">Ulcer Disease</label><br>
+
+                        <input type="checkbox" id="hepatitis" name="healthConditions" value="Hepatitis">
+                        <label for="hepatitis">Hepatitis</label><br>
+
+                        <input type="checkbox" id="kidneyDisease" name="healthConditions" value="Kidney Disease">
+                        <label for="kidneyDisease">Kidney Disease</label><br>
+
+                        <input type="checkbox" id="liverDisease" name="healthConditions" value="Liver Disease">
+                        <label for="liverDisease">Liver Disease</label><br>
+
+                        <input type="checkbox" id="sleepApnea" name="healthConditions" value="Sleep Apnea">
+                        <label for="sleepApnea">Sleep Apnea</label><br>
+
+                        <input type="checkbox" id="useCPAPMachine" name="healthConditions" value="Use a C-PAP machine">
+                        <label for="useCPAPMachine">Use a C-PAP machine</label><br>
+
+                        <input type="checkbox" id="thyroidProblems" name="healthConditions" value="Thyroid Problems">
+                        <label for="thyroidProblems">Thyroid Problems</label><br>
+
+                        <input type="checkbox" id="tuberculosis" name="healthConditions" value="Tuberculosis">
+                        <label for="tuberculosis">Tuberculosis</label><br>
+
+                        <input type="checkbox" id="venerealDisease" name="healthConditions" value="Venereal Disease">
+                        <label for="venerealDisease">Venereal Disease</label><br>
+
+                        <input type="checkbox" id="neurologicalDisorders" name="healthConditions"
+                            value="Neurological Disorders">
+                        <label for="neurologicalDisorders">Neurological Disorders</label><br>
+
+                        <input type="checkbox" id="bleedingDisorders" name="healthConditions"
+                            value="Bleeding Disorders">
+                        <label for="bleedingDisorders">Bleeding Disorders</label><br>
+
+                        <input type="checkbox" id="lungDisease" name="healthConditions" value="Lung Disease">
+                        <label for="lungDisease">Lung Disease</label><br>
+
+                        <input type="checkbox" id="emphysema" name="healthConditions" value="Emphysema">
+                        <label for="emphysema">Emphysema</label><br>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="otherIllnesses" class="mainLabels">Other illnesses:</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="otherIllnesses" id="reason">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="listOperationsDates" class="mainLabels">Please list any Operations and Dates
+                        of Each</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea name="listOperationsDates" id="listOperationsDates" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><label for="currentMedication" class="mainLabels">Please list your Current
+                        Medications</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea name="currentMedication" id="currentMedication" rows="10"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3"><label for="currentMedication" class="mainLabels">
+                        <h3>Healthy & Unhealthy Habits</h3>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr>
+                    <label for="exercise" class="mainLabels">Exercise</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label><input type="radio" name="exercise" value="Never"> Never</label><br>
+                    <label><input type="radio" name="exercise" value="1-2 days"> 1-2 days</label><br>
+                    <label><input type="radio" name="exercise" value="3-4 days"> 3-4 days</label><br>
+                    <label><input type="radio" name="exercise" value="5+ days"> 5+ days</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr>
+                    <label for="diet" class="mainLabels">Eating following a diet</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label><input type="radio" name="diet" value="Loose diet"> I have a loose diet</label><br>
+                    <label><input type="radio" name="diet" value="Strict diet"> I have a strict diet</label><br>
+                    <label><input type="radio" name="diet" value="No diet plan"> I don't have a diet plan</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr>
+                    <label for="alcohol" class="mainLabels">Alcohol Consumption</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label><input type="radio" name="alcohol" value="No drink"> I don't drink</label><br>
+                    <label><input type="radio" name="alcohol" value="1-2 glasses/day"> 1-2 glasses/day</label><br>
+                    <label><input type="radio" name="alcohol" value="3-4 glasses/day"> 3-4 glasses/day</label><br>
+                    <label><input type="radio" name="alcohol" value="5+ glasses/day"> 5+ glasses/day</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr>
+                    <label for="caffeine" class="mainLabels">Caffeine Consumption</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label><input type="radio" name="caffeine" value="No caffeine"> I don't use caffeine</label><br>
+                    <label><input type="radio" name="caffeine" value="1-2 cups/day"> 1-2 cups/day</label><br>
+                    <label><input type="radio" name="caffeine" value="3-4 cups/day"> 3-4 cups/day</label><br>
+                    <label><input type="radio" name="caffeine" value="5+ cups/day"> 5+ cups/day</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr>
+                    <label for="smoke" class="mainLabels">Do you smoke?</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label><input type="radio" name="smoke" value="No"> No</label><br>
+                    <label><input type="radio" name="smoke" value="0-1 pack/day"> 0-1 pack/day</label><br>
+                    <label><input type="radio" name="smoke" value="1-2 packs/day"> 1-2 packs/day</label><br>
+                    <label><input type="radio" name="smoke" value="2+ packs/day"> 2+ packs/day</label><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3"><label for="otheCommentsRgMedicalHitory" class="mainLabels">Include other comments regarding your Medical History</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea name="otheCommentsRgMedicalHitory" id="otheCommentsRgMedicalHitory" rows="10"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button type="submit" id="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+
+
+
+    </form>
+
+
+</body>
+
+</html>

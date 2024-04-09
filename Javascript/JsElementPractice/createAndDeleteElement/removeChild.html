@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Child</title>
+    <style>
+        .bg{
+            background-color: antiquewhite;
+        }
+        .font{
+            font-size: 23px;
+            font-weight: bolder;
+            color: peru;
+        }
+        #resultArea{
+            height: 25vh;
+            width: 55vw;
+            margin: 23px 0px;
+            border: 3px solid purple;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn" onclick="generate()">Click here to generate</button>
+    <button onclick="remove()">Remove</button>
+     <div id="resultArea">
+        data will load here
+     </div>
+    <script>
+        
+        var para = document.createElement('p');
+        var area = document.getElementById('resultArea');
+        function generate(){
+
+        para.textContent = 'This is dynamically generated......';
+        para.className = 'bg font';
+
+        area.appendChild(para);
+
+        document.body.appendChild(area);
+
+        
+       }
+
+       function remove(){
+        area.removeChild(para);
+       }
+    </script>
+</body></html>
+
+
+
+<!-- 
+    
+The removeChild method is used to remove a child node from the DOM (Document Object Model) of a specified parent node. Here is a brief overview:
+
+Syntax:
+
+javascript
+Copy code
+parentNode.removeChild(childNode);
+Parameters:
+
+parentNode: The parent node from which the childNode will be removed.
+childNode: The child node to be removed from the specified parentNode.
+ -->

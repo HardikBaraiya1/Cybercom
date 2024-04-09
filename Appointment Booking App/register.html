@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+        <!-- Page content -->
+        <main>
+            <section class="container d-flex flex-column vh-100">
+                <div class="row align-items-center justify-content-center g-0 h-lg-100 vh-100 py-8">
+                    <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+                        <!-- Card -->
+                        <div class="card shadow">
+                            <!-- Card body -->
+                            <div class="card-body p-6">
+                                <div class="mb-4">
+                                    <a href="../index.html"><img src="assests/logo.png" class="mb-4" alt="logo-icon"></a>
+                                    <h1 class="mb-1 fw-bold">Register</h1>
+                                    <!-- <span>
+                                        Don’t have an account?
+                                        <a href="sign-up.html" class="ms-1">Sign up</a>
+                                    </span> -->
+                                </div>
+                                <!-- Form -->
+                                <form class="registerForm" id="registerForm" onsubmit="event.preventDefault(); reigsterUser()">
+                                    <div class="userExist invalid-feedback " id="mailExist-error">
+                                        Email already exist!!!
+                                    </div>
+                                    <div class="succesfull d-none" id="registerSuccess">
+                                        Register Successfully.. <br>Remember your email and password <br>you will be redirected within 5secs to log in page..!!!
+                                    </div>
+                                              <!-- type -->
+                                              <select name="type" id="type" class="form-select mb-2">
+                                                <option value="patient" selected>Patient</option>
+                                                <option value="doctor">Doctor</option>
+                                            </select>
+                                    <!-- E-mail -->
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Enter your email</label>
+                                        <input type="email" id="email" class="form-control" name="email" placeholder="Email address here" value="hardik123@gmail.com" >
+                                        <div class="invalid-feedback " id="mail-error">Please enter valid username or email.</div>
+                                    </div>
+                                    <!-- username -->
+                                    <div class="mb-3">
+                                        <label for="userName" class="form-label">Enter your Username</label>
+                                        <input type="text" id="userName" class="form-control" name="userName" placeholder="Please enter your name" value="hardik" >
+                                        <div class="invalid-feedback " id="userName-error">Please enter a userName</div>
+                                    </div>
+                                    <!-- Password -->
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Enter your Password</label>
+                                        <input type="password" id="password" class="form-control" name="password" placeholder="**************" value="abc@123" >
+                                        <div class="invalid-feedback " id="pass-error">Please enter valid password.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="re-password" class="form-label">Re-type your Password</label>
+                                        <input type="re-password" id="re-password" class="form-control" name="re-password" placeholder="**************" value="abc@123" >
+                                        <div class="invalid-feedback " id="re-pass-error">Password must be same</div>
+                                    </div>
+                                    <div>
+                                        <!-- Button -->
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">Register</button>
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- <button onclick="register()"> register</button> -->
+ 
+
+
+<script src="script.js"></script> 
+
+<script>
+
+</script>
+
+</body>
+</html>

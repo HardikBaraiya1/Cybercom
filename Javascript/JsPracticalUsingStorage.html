@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealing with Storage</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <h3>Add Product Form</h3>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="dataCotainers">
+                        <label for="productTitle">Product Title</label>
+                        <input type="text" name="productTitle" id="productTitle">
+                    </div>
+                </td>
+                <td>
+                    <div class="dataContainers">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" id="price">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="dataContainers">
+                        <label for="discription">Discription</label>
+                        <textarea name="discription" id="discription" cols="45" rows="10" placeholder="Type here"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="dataContainers">
+                        <label for="category">Category</label>
+                        <select name="category" id="category">
+                            <option value="">Choose...</option>
+                            <option value="fruit">Fruit</option>
+                            <option value="books">Books</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button onclick="verifyAndAdd()">Save</button>
+    </form>
+
+    <h3>Products:</h3>
+    <div>
+        <table id="resultArea">
+            <tr>
+                <th>Product Title</th>
+                <th>Price</th>
+                <th>Discription</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+
+        </table>
+    </div>
+    <script>
+        var itemCount = parseInt(localStorage.getItem('itemCount')) || 0;
+        
+        function verifyAndAdd() {
+            itemCount = parseInt(localStorage.getItem('itemCount')) || 0;
+            var title = document.getElementById('productTitle').value;
+            var price = document.getElementById('price').value;
+            var disc = document.getElementById('discription').value;
+            var categ = document.getElementById('category').value;
+            var resultArea = document.getElementById('resultArea');
+
+            var data = {};
+
+            if (title !== '' && !isNaN(price) && disc !== '' && categ !== '') {
+                var place = 'product_' + (parseInt(itemCount) + 1);
+
+                data = {
+                    'title': title,
+                    'price': price,
+                    'discription': disc,
+                    'category': categ,
+                };
+
+                localStorage.setItem('itemCount', parseInt(itemCount) + 1);
+                localStorage.setItem(place, JSON.stringify(data));
+
+                // Create a unique ID for the tr element
+                var trId = 'product_' + (parseInt(itemCount)+1);
+
+                resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                    <td>${data['title']}</td>
+                    <td>${data['price']}</td>
+                    <td>${data['discription']}</td>
+                    <td>${data['category']}</td>
+                    <td>
+                        <button onclick="editItem('${trId}')">Edit</button>
+                        <button onclick="saveEdit('${trId}')">Save Edit</button>
+                        <button onclick="deleteItem('${trId}')">Delete</button>
+                    </td>
+                </tr>`);
+            }
+
+            // Clearing form
+            document.getElementById('productTitle').value = '';
+            document.getElementById('price').value = '';
+            document.getElementById('discription').value = '';
+            document.getElementById('category').value = '';
+
+            event.preventDefault();  
+        }
+
+        function editItem(trId) {
+            
+            var data = JSON.parse(localStorage.getItem(trId));
+            document.getElementById('productTitle').value = data.title;
+            document.getElementById('price').value = data.price;
+            document.getElementById('discription').value = data.discription;
+            document.getElementById('category').value = data.category;
+        }
+
+        function saveEdit(trId) {
+            console.log('id is : ',trId)
+            if (trId) {
+                var title = document.getElementById('productTitle').value;
+                var price = document.getElementById('price').value;
+                var disc = document.getElementById('discription').value;
+                var categ = document.getElementById('category').value;
+
+                if (title !== '' && !isNaN(price) && disc !== '' && categ !== '') {
+                    var data = {
+                        'title': title,
+                        'price': price,
+                        'discription': disc,
+                        'category': categ,
+                    };
+
+                    localStorage.setItem(trId, JSON.stringify(data));
+
+                    var trElement = document.getElementById(trId);
+            trElement.parentNode.removeChild(trElement);
+
+                    // Update the displayed row with the edited data
+                    var resultArea = document.getElementById('resultArea');
+            console.log('here')
+            resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                    <td>${data['title']}</td>
+                    <td>${data['price']}</td>
+                    <td>${data['discription']}</td>
+                    <td>${data['category']}</td>
+                    <td>
+                        <button onclick="editItem('${trId}')">Edit</button>
+                        <button onclick="saveEdit('${trId}')">Save Edit</button>
+                        <button onclick="deleteItem('${trId}')">Delete</button>
+                    </td>
+                </tr>`);
+                }
+
+                // Clear the form and the hidden field after saving the edit
+                document.getElementById('productTitle').value = '';
+                document.getElementById('price').value = '';
+                document.getElementById('discription').value = '';
+                document.getElementById('category').value = '';
+            }
+        }
+
+        function deleteItem(trId) {
+            localStorage.removeItem(trId);
+            itemCount = Math.max(0, itemCount - 1);
+            localStorage.setItem('itemCount', itemCount);
+            var trElement = document.getElementById(trId);
+            trElement.parentNode.removeChild(trElement);
+        }
+
+        // Initial display of existing data
+        function display(){for (var i = 1; i <= itemCount; i++) {
+            var data = JSON.parse(localStorage.getItem('product_' + i));
+            var trId = 'product_' + i;
+
+            if(data==null)
+            continue;
+            resultArea.insertAdjacentHTML('beforeend', `<tr id="${trId}">
+                <td>${data['title']}</td>
+                <td>${data['price']}</td>
+                <td>${data['discription']}</td>
+                <td>${data['category']}</td>
+                <td>
+                    <button onclick="editItem('${trId}')">Edit</button>
+                    <button onclick="saveEdit('${trId}')">Save Edit</button>
+                    <button onclick="deleteItem('${trId}')">Delete</button>
+                </td>
+            </tr>`);
+        }}
+        display();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+body {
+    font-family: 'Times New Roman', Times;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    padding: 50px;
+    z-index: -1;
+}
+
+.picdiv {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+    object-fit: contain;
+
+}
+
+.picdiv h1 {
+    color: white;
+    margin-left: 15px;
+    text-align: center;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.info-card {
+    /* position: absolute; */
+    /* overflow: visible; */
+    width: 30%;
+    margin: 20px 20px;
+    background-color: rgb(37, 255, 219);
+    box-shadow: 2px 2px 15px;
+    border: 3px double blueviolet;
+    max-height: 300px;
+}
+
+.info-card:hover {
+    max-height: 500px;
+}
+
+.info-card .info-list {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    width: 223%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* border: 2px solid grey; */
+    border-top: 0px;
+    z-index: 1;
+    overflow: auto;
+}
+
+.connect{
+    position: absolute;
+    top: 1;
+    /* box-sizing: ; */
+    right: 0;
+    display: flex;
+}
+
+.connect i{
+    color: rgb(230, 230, 7);
+    margin-inline: 3px;
+}
+
+.info-card:hover .info-list {
+    font-size: large;
+    font-family: cursive;
+    display: block;
+}
+
+.info-card:hover .card-header {
+    border-bottom: 0px;
+}
+
+.list-group-item {
+    background-color: #d4d1d1;
+    box-sizing: border-box;
+}
+
+.info-label {
+    display: inline-block;
+    text-align: start;
+    padding: 8px;
+    vertical-align: top;
+}
+
+.info-data {
+    display: inline-block;
+    text-align: center;
+    padding: 8px;
+}

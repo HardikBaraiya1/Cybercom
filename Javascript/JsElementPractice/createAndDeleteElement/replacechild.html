@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replace Child</title>
+    <style>
+        .bg{
+            background-color: antiquewhite;
+            padding: 18px 2px;
+        }
+        .font{
+            font-size: 23px;
+            font-weight: bolder;
+            color: peru;
+        }
+        #resultArea{
+            height: 25vh;
+            width: 55vw;
+            margin: 23px 0px;
+            border: 3px solid purple;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn" onclick="generate()">Click here to generate</button>
+    <button onclick="remove()">Remove</button>
+    <button onclick="replace()">Replace</button>
+    
+     <div id="resultArea">
+        data will load here
+     </div>
+    <script>
+        
+        var para = document.createElement('p');
+        var area = document.getElementById('resultArea');
+        function generate(){
+
+        para.textContent = 'This is dynamically generated......';
+        para.className = 'bg font';
+
+        area.appendChild(para);
+
+        document.body.appendChild(area);
+
+        
+       }
+
+       function remove(){
+        area.removeChild(para);
+       }
+
+       function replace(){
+        var newpara = document.createElement('h3');
+        para.textContent = 'This is written in new tag H3 replaced by old tag';
+
+        para.className = 'bg';
+
+        area.replaceChild('para','newpara');
+       }
+    </script>
+</body></html>
+
+
+
+<!-- 
+    
+The replaceChild method is used to replace a child node with a new node in the DOM (Document Object Model). Here is an overview:
+
+Syntax:
+
+javascript
+Copy code
+parentNode.replaceChild(newNode, oldNode);
+Parameters:
+
+parentNode: The parent node of the child nodes involved in the replacement.
+newNode: The new node that will replace the existing oldNode.
+oldNode: The existing child node that will be replaced by the newNode.
+ -->

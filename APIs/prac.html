@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API practice</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 2px double antiquewhite;
+            margin: auto;
+        }
+
+        td {
+            border: 2px solid antiquewhite;
+            padding: 5px 11px;
+        }
+
+        thead {
+            background-color: darkgrey;
+        }
+
+        #waitingMessage {
+            color: green;
+            text-align: center;
+        }
+
+        #loadBtn {
+            position: relative;
+            top: 10px;
+        }
+
+        #savedApiMsg {
+            text-align: center;
+            color: black;
+            font-weight: 700;
+        }
+
+        #savedAPIsArea {
+            border: 2px double aquamarine;
+            padding: 21px 11px;
+            margin: 19px 11px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainArea">
+    <div id="ApiArea"></div>
+    <button onclick="show()" id="loadBtn">Load APIs</button>
+    <div id="savedAPIsArea"></div>
+    </div>
+
+    <script src="prac.js"></script>
+
+    <script>
+        // show();
+        showSavedAPIs();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextNode</title>
+    <style>
+        .resultArea{
+            height: 25vh;
+            width: 55vw;
+            margin: 23px 0px;
+            border: 3px solid purple;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontent">
+        <button onclick="add()">Click to generate:</button>
+        <!-- <input type="text" name="add" id="add" placeholder="write what to add"> -->
+    </div>
+    <script>
+        function add(){
+            // var data = document.getElementById('add').value;
+            
+            var area = document.createElement('div');
+            area.className = 'resultArea';
+            var dataToPush = document.createTextNode('This is new data');
+
+            area.appendChild(dataToPush);
+            document.body.appendChild(area);
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 
+    
+The document.createTextNode() method is used to create a new Text Node. A Text Node represents plain text in the DOM, and it's often used to set the text content of an element.
+ -->

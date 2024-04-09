@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./Portfoliostyle.css">
+</head>
+<body>
+<header>
+    
+    <div class="picdiv">
+    <img src="./pic.jpg" alt="Your Name" class="rounded float-start rounded-circle">
+    
+    <h1>Hardik Baraiya</h1>
+    </div>
+</header>
+    <div class="header">
+    <div class="connect">
+        <a href="https://www.instagram.com/hb_baraiya8555/" target="_blank" class="icon" id="instagram-icon"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.facebook.com/hardik.baraiya.568632" target="_blank" class="icon" id="facebook-icon"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/HardikBaraiya1" target="_blank" class="icon" id="github-icon"><i class="bi bi-github"></i></a>
+        <a href="https://join.skype.com/invite/wOQBepGO9DbF" target="_blank" class="icon" id="skype-icon"><i class="bi bi-skype"></i></a>
+        <a href="mailto:hardikb.cybercom@gmail.com" target="_blank" class="icon" id="email-icon"><i class="bi bi-envelope"></i></a>
+    </div>
+</div>
+
+    <div class="card m-5 info-card">
+        <div class="card-header" style="border: 2px solid grey;">
+            <h2>Personal Information</h2>
+        </div>
+        <div >
+            <ul class="list-group  info-list">
+                <li class="list-group-item">
+                    <div class="info-label"><strong>Email:</strong></div>
+                    <div class="info-data">hardikb.cybercom@gmail.com</div>
+                </li>
+                <li class="list-group-item">
+                    <div class="info-label"><strong>Phone Number:</strong></div>
+                    <div class="info-data">9924126103</div>
+                </li>
+                <li class="list-group-item">
+                    <div class="info-label"><strong>Address:</strong></div>
+                    <div class="info-data">Plot no.5, Parul Society, Ghogha road, Bhavnagar.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="card m-5 info-card">
+        <div class="card-header" style="border: 2px solid grey;">
+            <h2>My Details</h2>
+        </div>
+        <div >
+            <ul class="list-group list-group-flush info-list">
+                <li class="list-group-item">
+                    <div class="info-label"><strong>Home Town:</strong></div>
+                    <div class="info-data">Bhavnagar</div>
+                </li>
+                <li class="list-group-item">
+                    <div class="info-label h-0"><strong>Education Background: </strong></div>
+                    <div class="info-data">10th - Fatima Convent High School <br> 12th - B.M.Commerce High School <br> College - GEC Bhanvnagar</div>
+                </li>
+                <li class="list-group-item">
+                    <div class="info-label"><strong>Skills: </strong></div>
+                    <div class="info-data">Java, Python, Flutter, mysql, Node , Some framworks</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="card m-5 info-card">
+        <div class="card-header" style="border: 2px solid grey;">
+            <h2>Projects</h2>
+        </div>
+        <div >
+            <ul class="list-group list-group-flush info-list">
+                <li class="list-group-item">
+                    <div class="info-label"><strong>some Website:   </strong></div>
+                    <div class="info-data">using html and css only</div>
+                </li>
+                <li class="list-group-item">
+                    <div class="info-label h-0"><strong>some apps(only frontend):</strong></div>
+                    <div class="info-data">using flutter</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+    
+
+    <footer>
+        Hardik Bariya &copy; 2024 Portfolio
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI/tZ1iXWjcWqea3eNtMwO6D1/biC0EaQpFcQ/A=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".info-list").hover(
+            function () {
+                $(this).find("li").each(function (index) {
+                    $(this).delay(100 * index).fadeIn(300);
+                });
+            },
+            function () {
+                $(this).find("li").fadeOut(300);
+            }
+        );
+    });
+</script>
+
+</body>
+</html>
